@@ -1,8 +1,5 @@
 package main;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-
 public class HexCalc {
 
 	private static int base = 16;
