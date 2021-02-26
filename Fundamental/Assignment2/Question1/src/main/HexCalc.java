@@ -5,7 +5,7 @@ import java.util.Hashtable;
 
 public class HexCalc {
 
-	private static int base = 8;
+	private static int base = 16;
 	private static String hexDigits = "0123456789ABCDEF" ; 
 	
 	/**
@@ -22,6 +22,20 @@ public class HexCalc {
 			char hexDigit = hexValue.charAt(index);
 			int decimalOfHexDigit = hexDigits.indexOf(hexDigit);
 			decimalValue = base*decimalValue + decimalOfHexDigit ;	
+		}
+		
+		return decimalValue;
+	}
+	
+    public static int HexToDecimal2(String hexValue){
+		
+		int decimalValue = 0;
+		hexValue = hexValue.toUpperCase();
+		
+		for( int index = hexValue.length()-1 ; index >= 0 ; index -- ){	
+			char hexDigit = hexValue.charAt(index);
+			int decimalOfHexDigit = hexDigits.indexOf(hexDigit);
+			decimalValue = (int)Math.pow(base, hexValue.length() - index -1)*decimalOfHexDigit + decimalValue ;	
 		}
 		
 		return decimalValue;
