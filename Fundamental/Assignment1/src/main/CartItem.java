@@ -1,5 +1,5 @@
 package main;
-import java.util.Dictionary;
+
 import java.util.Hashtable;
 
 import main.Product;
@@ -41,16 +41,17 @@ public class CartItem {
 		product.increaseProductAvailableQuantityBy(quantityToRemove);
 	}
 	
+	
+	public Product getProduct(){
+		return this.product;
+	}
+	
 	/**
-	 * Method to get Item Details
-	 * @return A Dictionary Object with Product Details in It
+	 * Method to get Item Quantity Needed by Customer
+	 * @return Item Quantity Needed 
 	 */
-	public Dictionary getItemDetails(){
-
-		Dictionary item_details = this.product.getProductDetails();
-		item_details.put("quantity_needed",this.quantity_needed);
-		return item_details;
-		
+	public int getItemQauntityNeeded(){
+		return this.quantity_needed;
 	}
 	
 }

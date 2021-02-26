@@ -12,7 +12,7 @@ public class MainApp {
 		
 		ArrayList<CartItem> listOfItemsInCart = cart.getListOfItems();
 		for( CartItem item : listOfItemsInCart ){
-			System.out.println(item.getItemDetails());
+			System.out.println(item.getProduct().getProductName() + " : " + item.getItemQauntityNeeded());
 		}
 	}
 	
@@ -25,9 +25,9 @@ public class MainApp {
       Product namkeen = new Product("id3","Namkeen",70,1);
 
       System.out.println("Products List : " +"\n ");
-      System.out.println(orange.getProductDetails());
-      System.out.println(biscuit.getProductDetails());
-      System.out.println(namkeen.getProductDetails());
+      System.out.println("Name : " + orange.getProductName() + " , Quantity : " + orange.getProductAvailableQuantity());
+      System.out.println("Name : " + biscuit.getProductName() + ",  Quantity : " + biscuit.getProductAvailableQuantity());
+      System.out.println("Name : " + namkeen.getProductName() + ",  Quantity : " + namkeen.getProductAvailableQuantity());
      
       
       

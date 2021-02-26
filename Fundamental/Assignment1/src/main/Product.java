@@ -1,8 +1,5 @@
 package main;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-
 public class Product {
 	
 	private String product_id ;  // unique_id for identification of product
@@ -26,19 +23,35 @@ public class Product {
 	
 	
 	/**
-	 * Get Details of Product
-	 * @return Dictionary contains Product Details
+	 * Get Product_id of Product
+	 * @return Product Id 
 	 */
+	public String getProductId(){
+		return this.product_id;
+	}
 	
-	public Dictionary getProductDetails(){
-		
-		Dictionary product_details = new Hashtable();
-		product_details.put("product_id", this.product_id);
-		product_details.put("product_name",this.product_name);
-		product_details.put("product_price",this.product_price);
-		product_details.put("product_available_quantity",this.product_available_quantity);
-		return product_details;
-		
+	/**
+	 * Get Product Name 
+	 * @return Product Name
+	 */
+	public String getProductName(){
+		return this.product_name;
+	}
+	
+	/**
+	 * Get Product Price
+	 * @return Product Price 
+	 */
+	public int getProductPrice(){
+		return this.product_price;
+	}
+	
+	/**
+	 * Get Product_id of Product
+	 * @return Product Available Quantity
+	 */
+	public int getProductAvailableQuantity(){
+		return this.product_available_quantity;
 	}
 	
 	/**
