@@ -1,12 +1,13 @@
 package main;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
 public class SparseMatrix {
 	
-	private final Map<Integer,Map<Integer,Integer>> matrix ;
+	private final int[][] matrix;
+	
+	private final  int row_index = 0 ;  // Default 
+	private final int col_index = 1 ;    // Default 
+	private final int element_index = 2;   // Default 
+	
 	private final int no_of_rows ;
 	private final int no_of_columns ;
 	
@@ -15,10 +16,10 @@ public class SparseMatrix {
 	 * Initialize Sparse Matrix Object
 	 * @param rows , requires no. of rows greater then 0
 	 * @param columns , requires no. of columns greater then 0
-	 * @param matrix , A Map which have matrix
+	 * @param matrix , A 2d array with row index at 0 index ,column index at 1 index ,element at 2 index   
 	 */
-	public SparseMatrix( int rows , int columns , Map <Integer , Map< Integer,Integer > > matrix ){
-		this.matrix =  new HashMap<>(matrix) ;
+	public SparseMatrix( int rows , int columns , int[][] matrix ){
+		this.matrix =  matrix.clone() ;
 		this.no_of_rows = rows ;
 		this.no_of_columns = columns ;
 	}
@@ -32,8 +33,13 @@ public class SparseMatrix {
 	 * @return the Element at required position
 	 */
 	private int get( int row_index  , int col_index ){
-		Map <Integer,Integer> emptyMap = new HashMap<Integer,Integer>(); 
-	  	return this.matrix.getOrDefault(row_index,emptyMap).getOrDefault(col_index, 0);
+		
+		for( int[] matrixElement : this.matrix ){
+			if( row_index == matrixElement[this.row_index] && col_index == matrixElement[this.col_index]  ){
+				return matrixElement[this.element_index];
+			}
+		}
+		return 0 ;
 	}
 	
 	
