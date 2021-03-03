@@ -2,6 +2,11 @@ package main;
 
 import java.util.ArrayList;
 
+/**
+ * Class For Representing a Polynomial Object
+ * @author vishnu.jangid_metacu
+ *
+ */
 public class Poly {
 
 	private final int[][] expression;
@@ -11,13 +16,15 @@ public class Poly {
 	
 	/**
 	 * Initialize a Polynomial Object 
-	 * @param arr , requires a 2d array which have coefficient at 0 index and Degree at index 1
+	 * @param arr int[][], requires a 2d array which have coefficient at 0 index and Degree at index 1
 	 */
 	public Poly(int [][] arr ){
 		this.expression = arr.clone() ;
 	}
 	
-	
+	/**
+	 * To Print Polynomial
+	 */
 	@Override
 	public String toString(){
 		String expression = "" ;
@@ -33,8 +40,8 @@ public class Poly {
 	
 	/**
 	 * Evaluate a Polynomial Expression
-	 * @param number , Value of X
-	 * @return , A Resultant float value after evaluating expression
+	 * @param number float, Value of X
+	 * @return float, A Resultant float value after evaluating expression
 	 */
 	public float evaluate( float number ){
 		
@@ -51,7 +58,7 @@ public class Poly {
 	
 	/**
 	 * Method to get Degree of a Polynomial
-	 * @return , Degree of Polynomial
+	 * @return int, Degree of Polynomial
 	 */
 	public int degree(){
 		
@@ -67,7 +74,10 @@ public class Poly {
 		return degree ;
 	}
 	
-	
+	/**
+	 * Method to get Polynomial
+	 * @return
+	 */
 	private int[][] getPoly(){
 		return this.expression.clone(); 
 	}
@@ -76,9 +86,9 @@ public class Poly {
 	
 	/**
 	 * Method To add Two Polynomial by passing Two Objects
-	 * @param p1 , Polynomial 1
-	 * @param p2 , Polynomial 2
-	 * @return , A Polynomial which is p1+p2
+	 * @param p1 Poly, Polynomial 1
+	 * @param p2 Poly, Polynomial 2
+	 * @return Poly, A Polynomial which is p1+p2
 	 */
 	public static Poly addPoly ( Poly p1, Poly p2 ){
 		
@@ -149,9 +159,9 @@ public class Poly {
 	
 	/**
 	 * Method To multiply Two Polynomial by passing Two Objects
-	 * @param p1 , Polynomial 1
-	 * @param p2 , Polynomial 2
-	 * @return , A Polynomial which is p1*p2
+	 * @param p1 Poly, Polynomial 1
+	 * @param p2 Poly, Polynomial 2
+	 * @return Poly, A Polynomial which is p1*p2
 	 */
 	public static Poly multiplyPoly ( Poly p1, Poly p2 ){
 		

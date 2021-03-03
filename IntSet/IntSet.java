@@ -3,6 +3,11 @@ package main;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * Class for implementing Set Methods.
+ * @author vishnu.jangid_metacu
+ *
+ */
 public class IntSet implements Iterable<Integer> {
 
 	private final ArrayList<Integer> set ;
@@ -12,7 +17,7 @@ public class IntSet implements Iterable<Integer> {
 	
 	/**
 	 * Initialize an IntSet by Taking array as input
-	 * @param arr , requires value in range 1-1000
+	 * @param arr int[], requires value in range 1-1000
 	 */
 	public IntSet(int[] arr){
 		
@@ -34,9 +39,10 @@ public class IntSet implements Iterable<Integer> {
 		this.set = tempSet;
 	}
 	
+	
 	/**
 	 * Initialize an IntSet by Taking array as input
-	 * @param arr , requires value in range 1-1000
+	 * @param arr Integer[] , requires value in range 1-1000
 	 */
 	public IntSet(Integer[] arr){
 		
@@ -59,7 +65,9 @@ public class IntSet implements Iterable<Integer> {
 	}
 
 	
-	
+	/**
+	 * For iterating to set Elements
+	 */
 	@Override
 	public Iterator<Integer> iterator(){
 		ArrayList<Integer> tempList = (ArrayList<Integer>) this.set.clone();
@@ -71,8 +79,8 @@ public class IntSet implements Iterable<Integer> {
     
 	/**
 	 * check whether x is a member of the set
-	 * @param x ,an Integer 
-	 * @return , true if X is present, otherwise false
+	 * @param x int,an Integer 
+	 * @return boolean, true if X is present, otherwise false
 	 */
 	public boolean isMember( int x){
 		
@@ -88,7 +96,7 @@ public class IntSet implements Iterable<Integer> {
 	
 	/**
 	 * Method to get size of IntSet
-	 * @return size of IntSet
+	 * @return int, size of IntSet
 	 */
 	public int size(){
 		return this.set.size();
@@ -98,8 +106,8 @@ public class IntSet implements Iterable<Integer> {
 	
 	/**
 	 * Method to check whether S is a subset of the set
-	 * @param S , IntSet 
-	 * @return true if S is subset of Set, Otherwise false
+	 * @param S IntSet 
+	 * @return  boolean, true if S is subset of Set, Otherwise false
 	 */
 	public boolean hasSubSet( IntSet S ){
 		for( int itemInS : S ){
@@ -114,8 +122,8 @@ public class IntSet implements Iterable<Integer> {
 	
 	/**
 	 * Method to get Compliment of A set , assuming that 1..1000 is the universal set
-	 * @param S , IntSet for which We have to find compliment Set
-	 * @return an IntSet object which is Compliment Set of S
+	 * @param S IntSet, IntSet for which We have to find compliment Set
+	 * @return IntSet, an IntSet object which is Compliment Set of S
 	 */
 	public IntSet getCompliment(){
 		
@@ -136,7 +144,7 @@ public class IntSet implements Iterable<Integer> {
 	/**
 	 * Method to union another IntSet S with the Set
 	 * @param S, IntSet 
-	 * @return an IntSet which is union set of two Set. 
+	 * @return IntSet an IntSet which is union set of two Set. 
 	 */
 	public IntSet union(IntSet S ){
 		

@@ -1,5 +1,4 @@
 package main;
-import java.util.ArrayList;
 
 import main.IntSet;
 
@@ -35,6 +34,7 @@ public class MainApp {
 		System.out.print(intSet1.size());
 		
 		System.out.print("\nIs '1' is member of Set1: " + intSet1.isMember(1));
+		System.out.print("\nIs '1' is member of Set1: " + intSet1.isMember(5));
 		
 		System.out.print("\nIs Set3 is subset of Set1: " + intSet1.hasSubSet(intSet3));
 		System.out.print("\nIs Set2 is subset of Set1: " + intSet1.hasSubSet(intSet2));
