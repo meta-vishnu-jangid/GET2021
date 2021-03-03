@@ -1,5 +1,10 @@
 package main;
 
+/**
+ * Class to implement Sparse Matrix
+ * @author vishnu.jangid_metacu
+ *
+ */
 public class SparseMatrix {
 	
 	private final int[][] matrix;
@@ -14,9 +19,9 @@ public class SparseMatrix {
 	
 	/**
 	 * Initialize Sparse Matrix Object
-	 * @param rows , requires no. of rows greater then 0
-	 * @param columns , requires no. of columns greater then 0
-	 * @param matrix , A 2d array with row index at 0 index ,column index at 1 index ,element at 2 index   
+	 * @param rows int, requires no. of rows greater then 0
+	 * @param columns int, requires no. of columns greater then 0
+	 * @param matrix int[][], A 2d array with row index at 0 index ,column index at 1 index ,element at 2 index   
 	 */
 	public SparseMatrix( int rows , int columns , int[][] matrix ){
 		this.matrix =  matrix.clone() ;
@@ -28,9 +33,9 @@ public class SparseMatrix {
 	
 	/**
 	 * Method to get element of Matrix at specified position.
-	 * @param row_index , Index of Row 
-	 * @param col_index , Index of Column
-	 * @return the Element at required position
+	 * @param row_index int, Index of Row 
+	 * @param col_index int, Index of Column
+	 * @return int ,the Element at required position
 	 */
 	private int get( int row_index  , int col_index ){
 		
@@ -46,7 +51,7 @@ public class SparseMatrix {
 	
 	/**
 	 * Method to get Transpose of Matrix.
-	 * @return a 2d array which represent transpose matrix.
+	 * @return int[][], a 2d array which represent transpose matrix.
 	 */
 	public int[][] transpose(){
 		
@@ -65,7 +70,7 @@ public class SparseMatrix {
 	
 	/**
 	 * Method to find if Matrix is Symmetric.
-	 * @return true if Matrix is symmetric otherwise false.
+	 * @return boolean, true if Matrix is symmetric otherwise false.
 	 */
 	public boolean isSymmetric(){
 		
@@ -91,12 +96,14 @@ public class SparseMatrix {
 	
 	/**
 	 * Method to add two Sparse matrix.
-	 * @param sm1 , 1st Sparse Matrix
-	 * @param sm2 , 2nd Sparse Matrix.
-	 * @return a 2d array which represent addition result matrix.
+	 * @param sm1 SparseMatrix, 1st Sparse Matrix
+	 * @param sm2 SparseMatrix, 2nd Sparse Matrix.
+	 * @return int[][], a 2d array which represent addition result matrix.
 	 */
 	public static int[][] add( SparseMatrix sm1 , SparseMatrix sm2 ){
-		
+		if(sm1.no_of_rows != sm2.no_of_rows || sm1.no_of_columns != sm2.no_of_columns){
+			throw new AssertionError("Invalid Inputs");
+		}
 		int[][] resultantMatrix = new int[sm1.no_of_rows][sm1.no_of_columns];
 		
 		for( int row =0 ; row < sm1.no_of_rows ; row++ ){
@@ -113,12 +120,14 @@ public class SparseMatrix {
 	
 	/**
 	 * Method to multiply two Sparse matrix.
-	 * @param sm1 , 1st Sparse Matrix
-	 * @param sm2 , 2nd Sparse Matrix.
-	 * @return a 2d array which represent multiplication result matrix.
+	 * @param sm1 SparseMatrix, 1st Sparse Matrix
+	 * @param sm2 SparseMatrix, 2nd Sparse Matrix.
+	 * @return int[][], a 2d array which represent multiplication result matrix.
 	 */
 	public static int[][] multiply( SparseMatrix sm1 , SparseMatrix sm2 ){
-		
+		if(sm1.no_of_columns != sm2.no_of_rows){
+			throw new AssertionError("Invalid Inputs");
+		}
 		int[][] resultantMatrix = new int[sm1.no_of_rows][sm2.no_of_columns];
 	 
 		for( int row1 = 0 ; row1 < sm1.no_of_rows ; row1++ ){
