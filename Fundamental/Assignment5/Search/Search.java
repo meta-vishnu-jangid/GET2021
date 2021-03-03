@@ -1,13 +1,18 @@
 package main;
 
+/**
+ * Class designed for different Search Approaches
+ * @author vishnu.jangid_metacu
+ *
+ */
 public class Search {
 
 	/**
 	 * Searches the element in array using Linear Search
-	 * @param arr , Array of Integers requires not null or of Zero length
-	 * @param leftIndex , Index From Left Where search begins
-	 * @param value , Value to Be Search 
-	 * @return index at which element is present , if not then -1
+	 * @param arr in[] , Array of Integers requires not null or of Zero length
+	 * @param leftIndex int, Index From Left Where search begins
+	 * @param value int, Value to Be Search 
+	 * @return int, index at which element is present , if not then -1
 	 */
 	public int linearSearch( int[] arr , int leftIndex , int value ){
 		if(arr.length == leftIndex){
@@ -23,10 +28,10 @@ public class Search {
 	
 	/**
 	* Searches the element in array using Binary Search
-	 * @param arr , Array of Integers requires not null or of Zero length
-	 * @param leftIndex , Index From Left Where search begins
-	 * @param rightIndex ,Index From Left Where search last 
-	 * @param value , Value to Be Search 
+	 * @param arr int[], Array of Integers requires not null or of Zero length
+	 * @param leftIndex int, Index From Left Where search begins
+	 * @param rightIndex int,Index From Left Where search last 
+	 * @param value int, Value to Be Search 
 	 * @return index at which element is present , if not then -1
 	 */
 	public int binarySearch(int[] arr, int leftIndex, int rightIndex, int value)

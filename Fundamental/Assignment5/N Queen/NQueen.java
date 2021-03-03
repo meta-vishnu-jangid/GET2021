@@ -1,23 +1,29 @@
 package main;
 
+
+/**
+ * Class Designed to check if Nqueen Problem can be solved for given dimension
+ * @author vishnu.jangid_metacu
+ *
+ */
 public class NQueen {
 	
 	 /**
-     * this method checks whether solution exists or not
-     * @param n , dimension of matrix
-     * @return true if solution exist, false otherwise
+     * this method checks whether solution exists or not for particular dimension
+     * @param n int, dimension of matrix
+     * @return boolean, true if solution exist, false otherwise
      */
-    public boolean isPossible(int n)
+    public boolean isPossible(int dimension)
     {
         int row = 0; 
-        int[][] board = new int[n][n];
+        int[][] board = new int[dimension][dimension];
         
         // initializing the board
-        for(int i = 0; i < n; i++)
-            for(int j = 0; j < n; j++)
+        for(int i = 0; i < dimension; i++)
+            for(int j = 0; j < dimension; j++)
                 board[i][j] = 0;
         
-        boolean result = placeQueen(n, board, row);
+        boolean result = placeQueen(dimension, board, row);
                 
         return result;
         
@@ -26,10 +32,10 @@ public class NQueen {
     
     /**
      * places the queens on the board 
-     * @param n , dimension of matrix
-     * @param board , A 2d array
-     * @param row , Row Index to begin with
-     * @return if a Queen is placed or not
+     * @param n int, dimension of matrix
+     * @param board int[][], A 2d array
+     * @param row int, Row Index to begin with
+     * @return boolean, if  Queens are placed or not
      */
     private boolean placeQueen(int n, int[][] board, int row )
     {
@@ -79,11 +85,11 @@ public class NQueen {
     
     /**
      * checks whether queen can be placed at the given position on the board or not
-     * @param 2d array representing board
-     * @param row , Index of Row
-     * @param column , Index of Column
-     * @param n dimension of matrix
-     * @return true if queen can be placed ,otherwise false
+     * @param board int[][] , 2d array representing board
+     * @param row int, Index of Row
+     * @param column int, Index of Column
+     * @param n int, dimension of matrix
+     * @return boolean , true if queen can be placed ,otherwise false
      */
     private boolean canPlaceQueen(int[][] board, int row, int column, int n)
     {
