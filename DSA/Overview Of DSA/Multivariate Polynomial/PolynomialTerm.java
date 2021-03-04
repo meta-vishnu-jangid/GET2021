@@ -1,11 +1,19 @@
 package main;
 
+/**
+ * Class For Representing a Polynomial Term
+ * @author vishnu.jangid_metacu
+ */
 public class PolynomialTerm {
 	public int coefficient;
 	public SubTerm headSubTerm;
 	private SubTerm lastSubTerm; 
 	public PolynomialTerm nextPolynomialTerm;
 	
+	/**
+	 * Initialize a Polynomial Term
+	 * @param coefficient int, Coefficient of Term
+	 */
 	public PolynomialTerm(int coefficient) {
 		this.headSubTerm = null;
 		this.coefficient = coefficient;
@@ -13,6 +21,11 @@ public class PolynomialTerm {
 		this.lastSubTerm = null;
 	}
 	
+	/**
+	 * Method to add SubTerm to PolynomialTerm
+	 * @param symbol char, e.g. x,y,z,w 
+	 * @param power int, power of symbol
+	 */
 	public void addSubTerm(char symbol, int power){
 		SubTerm subTerm = new SubTerm(symbol, power);
 		if(this.headSubTerm == null){
