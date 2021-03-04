@@ -9,12 +9,18 @@ public class Circle implements Shape{
 	private Point origin;
 	private String timeStamp;
 	
+	/**
+	 * Initialize Circle object by Passing Point of Origin and radius
+	 * @param origin Point, Point of Origin
+	 * @param radius double
+	 */
 	public Circle(Point origin,double radius) {
 		this.origin = origin;
 		this.radius = radius;
 		this.timeStamp = DateTimeFormatter.ofPattern("yyyy--MM-dd HH:mm:ss").format(LocalDateTime.now());
 	}
 	
+
 	@Override
 	public double getArea(){
 		return 22/7*this.radius*this.radius;

@@ -9,6 +9,11 @@ public class Square implements Shape {
 	private double side;
 	private String timeStamp;
 	
+	/**
+	 * Initialize Square object by Passing Point of Origin and side
+	 * @param origin Point, Point of Origin
+	 * @param side double
+	 */
 	public Square(Point origin,double side) {
 		this.origin = origin;
 		this.side = side;

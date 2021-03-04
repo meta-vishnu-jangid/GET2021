@@ -11,11 +11,21 @@ public class Screen {
 	private int yOrigin ;
 	private List<Shape> listOfShapes = new ArrayList<Shape>(); 
 	
+	/**
+	 * Initialize Screen Object
+	 */
 	public Screen(){
 		this.xOrigin = 0;
 		this.yOrigin = 0;
 	}
 	
+	
+	/**
+	 * Add Shape into Screen
+	 * @param shape Shape, shape to be Added
+	 * @return boolean, true if successfully added otherwise false
+	 * @throws AssertionError if Shape is null
+	 */
 	public boolean addShape(Shape shape) throws AssertionError{
 		if(shape == null){
 			throw new AssertionError("Shape Value cannot be null");
@@ -25,6 +35,12 @@ public class Screen {
 	}
 	
 	
+	/**
+	 * Delete Shape from Screen
+	 * @param shape Shape, Shape to be deleted 
+	 * @return boolean, true if successfully deleted or false if not found
+	 * @throws AssertionError if shape is null
+	 */
 	public boolean deleteShape(Shape shape) throws AssertionError{
 		if(shape == null){
 			throw new AssertionError("Shape Value cannot be null");
@@ -32,6 +48,13 @@ public class Screen {
 		return this.listOfShapes.remove(shape);
 	}
 	
+	
+	/**
+	 * Delete Shape of Specific Type
+	 * @param type String, type of Shape
+	 * @return boolean ,true if successfully deleted or false if not found
+	 * @throws AssertionError
+	 */
 	public boolean deleteShapesOfSpecificType(String type) throws AssertionError{
 		boolean flag = false;
 		if(type == null){
@@ -46,6 +69,11 @@ public class Screen {
 		return flag;
 	}
 	
+	
+	/**
+	 * Method to get Shapes sorted by area
+	 * @return Shape[], Array of Shapes
+	 */
 	public Shape[] getShapesSortedByArea(){
 		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
 		for(int i = 0; i < shapeArray.length - 1; i++ ){
@@ -63,6 +91,11 @@ public class Screen {
 		return shapeArray;
 	}
 	
+	
+	/**
+	 * Method to get Shapes sorted by Perimeter
+	 * @return Shape[], Array of Shapes
+	 */
 	public Shape[] getShapesSortedByPerimeter(){
 		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
 		for(int i = 0; i < shapeArray.length - 1; i++ ){
@@ -78,6 +111,11 @@ public class Screen {
 		return shapeArray;
 	}
 	
+	
+	/**
+	 * Method to get Shapes sorted by origin distance
+	 * @return Shape[], Array of Shapes
+	 */
 	public Shape[] getShapesSortedByOriginDistance(){
 		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
 		for(int i = 0; i < shapeArray.length - 1; i++ ){
@@ -97,6 +135,11 @@ public class Screen {
 		return shapeArray;
 	}
 	
+	
+	/**
+	 * Method to get Shapes sorted by timestamp
+	 * @return Shape[], Array of Shapes
+	 */
 	public Shape[] getShapesSortedByTimeStamp(){
 		
 		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
@@ -113,6 +156,12 @@ public class Screen {
 		return shapeArray;
 	}
 	
+	/**
+	 * Method to get Shapes that enclose a Specific Point
+	 * @param point Point, specific Point to check for
+	 * @return Shape[], Array of Shapes
+	 * @throws AssertionError, if point is null
+	 */
 	public Shape[] getShapesEnclosingAPoint(Point point) throws AssertionError{
 		if(point == null){
 			throw new AssertionError("Point Cannot be null");

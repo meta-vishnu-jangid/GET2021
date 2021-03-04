@@ -10,6 +10,12 @@ public class Rectangle implements Shape {
 	private double length;
 	private String timeStamp;
 	
+	/**
+	 * Initialize rectangle object by Passing Point of Origin ,length and width
+	 * @param origin Point, Point of Origin
+	 * @param lenght double
+	 * @param width double
+	 */
 	public Rectangle(Point origin, double length, double width) {
 		this.origin = origin;
 		this.width = width;
