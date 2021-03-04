@@ -53,5 +53,9 @@ public class Square implements Shape {
 		return this.timeStamp;
 	}
 	
+	@Override
+	public String getShapeType() {
+		return "Square";
+	}
 
 }

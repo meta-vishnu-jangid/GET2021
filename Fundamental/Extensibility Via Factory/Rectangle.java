@@ -55,4 +55,8 @@ public class Rectangle implements Shape {
 		return this.timeStamp;
 	}
 	
+	@Override
+	public String getShapeType() {
+		return "Rectangle";
+	}
 }

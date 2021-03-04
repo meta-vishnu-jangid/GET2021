@@ -41,4 +41,11 @@ public interface Shape {
 	 * @return String, Representing Timestamp
 	 */
 	public String getTimeStamp();
+	
+	
+	/**
+	 * Method to get Shape Type
+	 * @return String, Shape Type of String
+	 */
+	public String getShapeType();
 }

@@ -17,12 +17,12 @@ public class Circle implements Shape{
 	
 	@Override
 	public double getArea(){
-		return this.radius * this.radius;
+		return 22/7*this.radius*this.radius;
 	}
 	
 	@Override
 	public double getPerimeter(){
-		return 2 * 22/7 * this.radius; 
+		return 2*22/7*this.radius; 
 	}
 	
 	@Override
@@ -52,5 +52,10 @@ public class Circle implements Shape{
 	@Override
 	public String getTimeStamp() {
 		return this.timeStamp;
+	}
+
+	@Override
+	public String getShapeType() {
+		return "Circle";
 	}
 }

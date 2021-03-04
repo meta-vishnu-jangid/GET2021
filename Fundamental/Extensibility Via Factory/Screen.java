@@ -7,9 +7,122 @@ import main.Shape;
 
 public class Screen {
 	
+	private int xOrigin ;
+	private int yOrigin ;
 	private List<Shape> listOfShapes = new ArrayList<Shape>(); 
 	
-	public void addShape(Shape shape){
+	public Screen(){
+		this.xOrigin = 0;
+		this.yOrigin = 0;
+	}
+	
+	public boolean addShape(Shape shape) throws AssertionError{
+		if(shape == null){
+			throw new AssertionError("Shape Value cannot be null");
+		}
+		this.listOfShapes.add(shape);
+		return true;
+	}
+	
+	
+	public boolean deleteShape(Shape shape) throws AssertionError{
+		if(shape == null){
+			throw new AssertionError("Shape Value cannot be null");
+		}
+		return this.listOfShapes.remove(shape);
+	}
+	
+	public boolean deleteShapesOfSpecificType(String type) throws AssertionError{
+		boolean flag = false;
+		if(type == null){
+			throw new AssertionError("Type Value cannot be null");
+		}
+		for(Shape shape : listOfShapes){
+			if(type.equals(shape.getShapeType())){
+				flag = true;
+				this.listOfShapes.remove(shape);
+			}
+		}
+		return flag;
+	}
+	
+	public Shape[] getShapesSortedByArea(){
+		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
+		for(int i = 0; i < shapeArray.length - 1; i++ ){
+			for(int j = 0 ; j < shapeArray.length-i-1; j++){
+				if(shapeArray[j].getArea() > shapeArray[j+1].getArea() ){
+					Shape tempShape = shapeArray[j];
+					shapeArray[j] = shapeArray[j+1];
+					shapeArray[j+1] = tempShape;
+				}
+			}
+		}
+		for(Shape shape : shapeArray){
+			System.out.println(shape.getShapeType());
+		}
+		return shapeArray;
+	}
+	
+	public Shape[] getShapesSortedByPerimeter(){
+		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
+		for(int i = 0; i < shapeArray.length - 1; i++ ){
+			for(int j = 0 ; j < shapeArray.length-i-1; j++){
+				if(shapeArray[j].getPerimeter() > shapeArray[j+1].getPerimeter() ){
+					Shape tempShape = shapeArray[j];
+					shapeArray[j] = shapeArray[j+1];
+					shapeArray[j+1] = tempShape;
+				}
+			}
+		}
 		
+		return shapeArray;
+	}
+	
+	public Shape[] getShapesSortedByOriginDistance(){
+		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
+		for(int i = 0; i < shapeArray.length - 1; i++ ){
+			for(int j = 0 ; j < shapeArray.length-i-1; j++){
+				double distanceFromOrigin1 = Math.sqrt(Math.pow(shapeArray[j].getOrigin().getXCoordinate() - this.xOrigin, 2)
+						+ Math.pow(shapeArray[j].getOrigin().getYCoordinate()- this.yOrigin, 2));
+				double distanceFromOrigin2 = Math.sqrt(Math.pow(shapeArray[j+1].getOrigin().getXCoordinate() - this.xOrigin, 2)
+						+ Math.pow(shapeArray[j+1].getOrigin().getYCoordinate()- this.yOrigin, 2));
+				if( distanceFromOrigin1 > distanceFromOrigin2){
+					Shape tempShape = shapeArray[j];
+					shapeArray[j] = shapeArray[j+1];
+					shapeArray[j+1] = tempShape;
+				}
+			}
+		}
+		
+		return shapeArray;
+	}
+	
+	public Shape[] getShapesSortedByTimeStamp(){
+		
+		Shape[] shapeArray = this.listOfShapes.toArray(new Shape[this.listOfShapes.size()]);
+		for(int i = 0; i < shapeArray.length - 1; i++ ){
+			for(int j = 0 ; j < shapeArray.length-i-1; j++){
+				if(shapeArray[j].getTimeStamp().compareTo(shapeArray[j+1].getTimeStamp()) > 0 ){
+					Shape tempShape = shapeArray[j];
+					shapeArray[j] = shapeArray[j+1];
+					shapeArray[j+1] = tempShape;
+				}
+			}
+		}
+		
+		return shapeArray;
+	}
+	
+	public Shape[] getShapesEnclosingAPoint(Point point) throws AssertionError{
+		if(point == null){
+			throw new AssertionError("Point Cannot be null");
+		}
+		List<Shape> listOfShapesWithEnclosingPoint = new ArrayList<Shape>(); 
+		for(Shape shape : this.listOfShapes){
+			if(shape.isPointEnclosed(point)){
+				listOfShapesWithEnclosingPoint.add(shape);
+			}
+		}
+		return listOfShapesWithEnclosingPoint.toArray(new Shape[listOfShapesWithEnclosingPoint.size()]);
 	}
 }
