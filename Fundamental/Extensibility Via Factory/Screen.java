@@ -60,12 +60,18 @@ public class Screen {
 		if(type == null){
 			throw new AssertionError("Type Value cannot be null");
 		}
-		for(Shape shape : listOfShapes){
-			if(type.equals(shape.getShapeType())){
+		boolean isShapeFound = false;
+		do{
+			isShapeFound = false;
+			for(Shape shape : listOfShapes){
+				if(type.equals(shape.getShapeType())){
 				flag = true;
+				isShapeFound = true;
 				this.listOfShapes.remove(shape);
-			}
-		}
+				break;
+			    }
+		    }
+	    }while(isShapeFound);
 		return flag;
 	}
 	

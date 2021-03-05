@@ -20,19 +20,22 @@ public class ScreenTest {
 		Shape circleShape = ShapeFactory.createShape("Circle", new Point(3, 3),new int[]{2} );
 		Shape squareShape = ShapeFactory.createShape("Square", new Point(5, 5),new int[]{2} );
 		Shape rectangleShape = ShapeFactory.createShape("Rectangle", new Point(8, 8),new int[]{1,2} );
+		Shape squareShape2 = ShapeFactory.createShape("Square", new Point(0,0),new int[]{1});
+		
 		
 		Screen screen = new Screen();
 		
 		assertEquals(true,screen.addShape(circleShape));
 		assertEquals(true,screen.addShape(squareShape));
 		assertEquals(true,screen.addShape(rectangleShape));
+		assertEquals(true,screen.addShape(squareShape2));
 		
-		assertArrayEquals(new Shape[] {rectangleShape,squareShape,circleShape},screen.getShapesSortedByArea());
-		assertArrayEquals(new Shape[] {circleShape,squareShape,rectangleShape},screen.getShapesSortedByOriginDistance());
-		assertArrayEquals(new Shape[] {rectangleShape,squareShape,circleShape},screen.getShapesSortedByPerimeter());
-		assertArrayEquals(new Shape[] {circleShape,squareShape,rectangleShape},screen.getShapesSortedByTimeStamp());
+		assertArrayEquals(new Shape[] {squareShape2,rectangleShape,squareShape,circleShape},screen.getShapesSortedByArea());
+		assertArrayEquals(new Shape[] {squareShape2,circleShape,squareShape,rectangleShape},screen.getShapesSortedByOriginDistance());
+		assertArrayEquals(new Shape[] {squareShape2,rectangleShape,squareShape,circleShape},screen.getShapesSortedByPerimeter());
+		assertArrayEquals(new Shape[] {circleShape,squareShape,rectangleShape,squareShape2},screen.getShapesSortedByTimeStamp());
 		assertArrayEquals(new Shape[] {squareShape},screen.getShapesEnclosingAPoint(new Point(5,5)));
-		assertArrayEquals(new Shape[] {},screen.getShapesEnclosingAPoint(new Point(0,0)));
+		assertArrayEquals(new Shape[] {squareShape2},screen.getShapesEnclosingAPoint(new Point(0,0)));
 	
 		
 		assertEquals(true,screen.deleteShape(circleShape));
