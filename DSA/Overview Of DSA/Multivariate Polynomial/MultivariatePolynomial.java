@@ -44,12 +44,7 @@ public class MultivariatePolynomial {
 	    int degree = 0;
 		PolynomialTerm startPolynomialTerm = this.headPolynomialTerm;
 		while(startPolynomialTerm!=null){
-			SubTerm startSubTerm = startPolynomialTerm.headSubTerm;
-			int power = 0 ;
-			while(startSubTerm!=null){
-				power += startSubTerm.power;
-				startSubTerm = startSubTerm.nextSubTerm;
-			}
+			int power = startPolynomialTerm.degree;
 			if(power>degree){
 				degree = power;
 			}

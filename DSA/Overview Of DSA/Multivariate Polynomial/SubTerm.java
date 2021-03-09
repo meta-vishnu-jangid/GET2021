@@ -1,5 +1,6 @@
 package main;
 
+
 public class SubTerm {
 	public char symbol;
 	public int power;

@@ -5,6 +5,7 @@ package main;
  * @author vishnu.jangid_metacu
  */
 public class PolynomialTerm {
+	public int degree;
 	public int coefficient;
 	public SubTerm headSubTerm;
 	private SubTerm lastSubTerm; 
@@ -19,6 +20,7 @@ public class PolynomialTerm {
 		this.coefficient = coefficient;
 		this.nextPolynomialTerm = null;
 		this.lastSubTerm = null;
+		this.degree = 0;
 	}
 	
 	/**
@@ -28,6 +30,7 @@ public class PolynomialTerm {
 	 */
 	public void addSubTerm(char symbol, int power){
 		SubTerm subTerm = new SubTerm(symbol, power);
+		this.degree += power;
 		if(this.headSubTerm == null){
 			this.headSubTerm = subTerm;
 			this.lastSubTerm = subTerm;
