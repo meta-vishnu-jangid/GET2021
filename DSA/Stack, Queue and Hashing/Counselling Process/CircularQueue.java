@@ -2,6 +2,12 @@ package main;
 
 import java.util.ArrayList; 
 
+/**
+ * Class to Implement Circular Queue
+ * @author vishnu.jangid_metacu
+ *
+ * @param <E> , type of Data supported by Queue
+ */
 class CircularQueue<E>{ 
 	
 	private int size ;
@@ -12,6 +18,10 @@ class CircularQueue<E>{
 	private Object[] queue ; 
 
 
+	/**
+	 * Initialize CircularQueue Object
+	 * @param size int, size of Queue
+	 */
 	CircularQueue(int size){
 		queue = new Object[size];
 		this.size = size; 
@@ -20,6 +30,12 @@ class CircularQueue<E>{
 		this.noOfElements = 0;
 	}	 
 
+	/**
+	 * Method to put data into Queue
+	 * @param data E,
+	 * @return boolean, true if successfully inserted
+	 * @throws AssertionError if Queue is Full and no more element can be inserted
+	 */
 	public boolean enQueue(E data) throws AssertionError{  
 		if(isFull()){
 			throw new AssertionError("Queue is Full");
@@ -43,6 +59,12 @@ class CircularQueue<E>{
 		return true;
 	} 
 	
+	
+	/**
+	 * Method to remove element form Queue
+	 * @return E, element removed
+	 * @throws AssertionError if Queue is Empty
+	 */
 	public E deQueue() throws AssertionError{ 
 		if(isEmpty()){
 			throw new AssertionError("Queue is Empty");
@@ -53,24 +75,27 @@ class CircularQueue<E>{
 		temp = (E)this.queue[this.front]; 
 	
 		// Condition for only one element 
-		if(front == rear) 
-		{ 
+		if(front == rear){ 
 			front = -1; 
 			rear = -1; 
 		} 
 	
-		else if(front == size - 1) 
-		{ 
+		else if(front == size - 1) { 
 			front = 0; 
 		} 
-		else
-		{ 
+		else{ 
 			front = front + 1; 
 		} 
 		this.noOfElements --;
+		
 		return temp; 
 	} 
 	
+	
+	/**
+	 * Method to get Queue as Array
+	 * @return E[], array of elements of Queue 
+	 */
 	public E[] getQueue(){
 		Object[] newQueue = new Object[this.noOfElements];
 		if(isEmpty()){
@@ -93,6 +118,11 @@ class CircularQueue<E>{
 		return (E[]) newQueue;
 	}
 	
+	
+	/**
+	 * Method to check if Queue is Empty
+	 * @return true if queue is Empty, otherwise false
+	 */
 	public boolean isEmpty(){
 		if(front == -1){
 			return true;
@@ -102,6 +132,10 @@ class CircularQueue<E>{
 		}
 	}
 	
+	/**
+	* Method to check if Queue is Full
+	* @return true if queue is Full, otherwise false
+	*/
 	public boolean isFull(){
 		if((this.front == 0 && this.rear == this.size - 1) || (this.rear == (this.front - 1)) ){ 
 			return true;

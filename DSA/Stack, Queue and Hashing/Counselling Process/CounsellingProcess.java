@@ -34,11 +34,11 @@ public class CounsellingProcess {
 	public CounsellingProcess(String studentListPath, String programListPath, String allocationFilePath) throws AssertionError {
 		
 			try {
-				this.studentList = new FileInputStream(new File(studentListPath));
-				this.ProgramList = new FileInputStream(new File(programListPath));
+				this.studentList = new FileInputStream(studentListPath);
+				this.ProgramList = new FileInputStream(programListPath);
 				this.allocationFilePath = allocationFilePath;
 			} catch (FileNotFoundException e) {
-				throw new AssertionError("File not Found");
+				throw new AssertionError("File not Found" + e.getMessage());
 			}
 			
 	}

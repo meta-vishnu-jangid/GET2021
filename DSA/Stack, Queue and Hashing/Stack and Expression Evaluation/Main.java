@@ -1,12 +1,11 @@
 package main;
 
+import java.util.Scanner;
+
 public class Main {
-
 	public static void main(String[] args) {
-		System.out.println(InfixExpression.infixToPostfix("a + b * ( c * d - e * ( f + g * h ) - i"));
-		System.out.println(InfixExpression.evaluateExpression("1 + 2 * 3 / 4 + 5 + 8 - 4"));
-		System.out.println(InfixExpression.infixToPostfix("! ( 1 == 1 + 4 )"));
-		System.out.println(InfixExpression.evaluateExpression("! ( 1 == 1 + 4 )"));
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter expression for Postfix Evaluation : ");
+		System.out.println(InfixExpression.evaluateExpression(scanner.nextLine()));
 	}
-
 }
