@@ -48,8 +48,6 @@ public class Cricket {
 				throw new AssertionError("Not Enough Bowlers");
 			}
 		}
-		
-		
 		return orderOfBowlers;
 	}
 }

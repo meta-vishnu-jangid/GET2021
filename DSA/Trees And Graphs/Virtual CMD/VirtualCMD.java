@@ -29,7 +29,7 @@ public class VirtualCMD {
 				if(tokens.length==0 || tokens.length == 3){
 					throw new WrongCommandException("Wrong Command");
 				}
-				switch (tokens[0]) {
+				switch (tokens[0].toLowerCase()) {
 				case "mkdir": if(tokens.length == 1){
 								throw new WrongCommandException("Wrong Command");
 							}
@@ -73,7 +73,12 @@ public class VirtualCMD {
 				case "exit" :if(tokens.length == 2){
 								throw new WrongCommandException("Wrong Command");
 							}
-							flag = false;
+				 			System.out.print("\nAre you sure you want to exit ( y for yes, Other Key for no) :  ");
+				 			String confirmation = scanner.nextLine();
+				 			if(confirmation.toLowerCase().equals("y")){
+				 				flag = false;	
+				 				System.out.print("\nExited.......");
+				 			}
 				           	break;
 					          
 	
