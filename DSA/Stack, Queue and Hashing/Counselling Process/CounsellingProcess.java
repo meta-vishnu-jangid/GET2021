@@ -38,7 +38,7 @@ public class CounsellingProcess {
 				this.ProgramList = new FileInputStream(programListPath);
 				this.allocationFilePath = allocationFilePath;
 			} catch (FileNotFoundException e) {
-				throw new AssertionError("File not Found" + e.getMessage());
+				throw new AssertionError("File not Found : " + e.getMessage());
 			}
 			
 	}
