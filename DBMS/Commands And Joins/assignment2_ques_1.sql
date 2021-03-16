@@ -6,34 +6,143 @@ create database storeFront;
 
 use storeFront;
 
-create table users (id varchar(30) NOT NULL, first_name VARCHAR(50) NOT NULL , last_name VARCHAR(50) NOT NULL, PRIMARY KEY(id)) ;
+create table users (  
+    id INT NOT NULL AUTO_INCREMENT, 
+    first_name VARCHAR(50) NOT NULL, 
+    last_name VARCHAR(50) NOT NULL,
+    type VARCHAR(7) CHECK(type IN ("admin", "shopper")), 
+    PRIMARY KEY(id)
+) ;
 
-create table addresses (ID VARCHAR(30) NOT NULL ,user_id VARCHAR(30) NOT NULL , ADDRESS VARCHAR(100) NOT NULL ,PRIMARY KEY(id), FOREIGN KEY(USER_ID) REFERENCES USERS(ID));
+CREATE TABLE address
+(
+    id INTEGER AUTO_INCREMENT,
+    user_id INTEGER NOT NULL,
+    house_no VARCHAR(7) NOT NULL,
+    street VARCHAR(30) NOT NULL,
+    city VARCHAR(30) NOT NULL,
+    state VARCHAR(30) NOT NULL,
+    country VARCHAR(30) DEFAULT "India",
+    pincode VARCHAR(6) NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
 
-create table PRODUCTS (id varchar(30) NOT NULL, name VARCHAR(50) NOT NULL , QUANTITY INT(5) NOT NULL, PRIMARY KEY(id)) ;
 
-create table PRODUCT_IMAGES ( PRODUCT_ID VARCHAR(30) NOT NULL , IMAGE TEXT NOT NULL , FOREIGN KEY(PRODUCT_ID) REFERENCES PRODUCTS(ID));
+create table category (  
+    id INT NOT NULL AUTO_INCREMENT , 
+    title VARCHAR(100) NOT NULL , 
+    parent_category INT, PRIMARY KEY(ID), 
+    FOREIGN KEY(parent_category) REFERENCES category(id) 
+);
 
-create table CATEGORIES ( PRODUCT_ID VARCHAR(30) NOT NULL , CATEGORY VARCHAR(100) NOT NULL , FOREIGN KEY(PRODUCT_ID) REFERENCES PRODUCTS(ID));
+create table product (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    price VARCHAR(10) NOT NULL,
+    description TEXT NOT NULL,
+    quantity INT(5) NOT NULL,
+    PRIMARY KEY(id)
+) ;
 
-CREATE TABLE ORDERS ( ID VARCHAR(30) NOT NULL, USER_ID VARCHAR(30), PRODUCT_ID VARCHAR(30), ADDRESS_ID VARCHAR(30),PRIMARY KEY(ID), FOREIGN KEY(USER_ID) REFERENCES USERS(ID),FOREIGN KEY(PRODUCT_ID) REFERENCES PRODUCTS(ID),FOREIGN KEY(ADDRESS_ID) REFERENCES ADDRESSES(ID));
+CREATE TABLE product_category(
+    product_id INT NOT NULL,
+    category_id INT NOT NULL,
+    PRIMARY KEY(product_id, category_id),
+    FOREIGN KEY(product_id) REFERENCES product(id),
+    FOREIGN KEY(category_id) REFERENCES category(id) 
+);
+
+
+
+create table product_image (
+    id INTEGER AUTO_INCREMENT,
+    product_id INT NOT NULL, 
+    image_url TEXT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(product_id) REFERENCES product(id)
+);
+
+CREATE TABLE orders (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    order_time DATETIME NOT NULL,
+    total FLOAT NOT NULL,
+    address_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(address_id) REFERENCES address(id)
+);
+
+CREATE TABLE order_item (
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    deliver_time DATETIME,
+    status VARCHAR(30) CHECK(status IN ("shipped", "placed","delivered","returned")) ,
+    PRIMARY KEY(order_id,product_id),
+    FOREIGN KEY(product_id) REFERENCES product(id)
+);
+
+
 
 SHOW TABLES;
 
-DROP TABLE ORDERS;
-DROP TABLE PRODUCT_IMAGES;
-DROP TABLE CATEGORIES;
-DROP TABLE PRODUCTS;
+DROP TABLE orders;
+DROP TABLE order_item;
+DROP TABLE product_image;
+DROP TABLE product_category;
+DROP TABLE product;
+
 
 SHOW TABLES;
 
-create table PRODUCTS (id varchar(30) NOT NULL, name VARCHAR(50) NOT NULL , QUANTITY INT(5) NOT NULL, PRIMARY KEY(id)) ;
+create table product (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    price VARCHAR(10) NOT NULL,
+    description TEXT NOT NULL,
+    quantity INT(5) NOT NULL,
+    PRIMARY KEY(id)
+) ;
 
-create table PRODUCT_IMAGES ( PRODUCT_ID VARCHAR(30) NOT NULL , IMAGE TEXT NOT NULL , FOREIGN KEY(PRODUCT_ID) REFERENCES PRODUCTS(ID));
+CREATE TABLE product_category(
+    product_id INT NOT NULL,
+    category_id INT NOT NULL,
+    PRIMARY KEY(product_id, category_id),
+    FOREIGN KEY(product_id) REFERENCES product(id),
+    FOREIGN KEY(category_id) REFERENCES category(id) 
+);
 
-create table CATEGORIES ( PRODUCT_ID VARCHAR(30) NOT NULL , CATEGORY VARCHAR(100) NOT NULL , FOREIGN KEY(PRODUCT_ID) REFERENCES PRODUCTS(ID));
 
-CREATE TABLE ORDERS ( ID VARCHAR(30) NOT NULL, USER_ID VARCHAR(30), PRODUCT_ID VARCHAR(30), ADDRESS_ID VARCHAR(30),PRIMARY KEY(ID), FOREIGN KEY(USER_ID) REFERENCES USERS(ID),FOREIGN KEY(PRODUCT_ID) REFERENCES PRODUCTS(ID),FOREIGN KEY(ADDRESS_ID) REFERENCES ADDRESSES(ID));
 
+create table product_image (
+    id INTEGER AUTO_INCREMENT,
+    product_id INT NOT NULL, 
+    image_url TEXT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(product_id) REFERENCES product(id)
+);
+
+CREATE TABLE orders (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    order_time DATETIME NOT NULL,
+    total FLOAT NOT NULL,
+    address_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(address_id) REFERENCES address(id)
+);
+
+CREATE TABLE order_item (
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    deliver_time DATETIME,
+    status VARCHAR(30) CHECK(status IN ("shipped", "placed","delivered","returned")) ,
+    PRIMARY KEY(order_id,product_id),
+    FOREIGN KEY(product_id) REFERENCES product(id)
+);
 
 SHOW TABLES;

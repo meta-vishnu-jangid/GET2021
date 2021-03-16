@@ -35,13 +35,13 @@ VALUES  ("Eletronics", NULL),
 INSERT INTO product(name, description, quantity, price)
 VALUES  ("Apple iPhone X", "Latest by apple", 13, 70000.00),
         ("Samsung S9", "Latest by samsung", 121, 62000.00),
-        ("HP BS-164TU", "Top selling by HP", 34, 41000.00),#3
+        ("HP BS-164TU", "Top selling by HP", 34, 41000.00),
         ("Dell AB-220TX", "Top selling by Dell", 23, 47500.00),
         ("Sandisk Memory card 32 gb", "Top selling memory card by Sandisk", 45, 410.00),
-        ("Sandisk pen drive 32 gb", "Top selling pen drive by Sandisk", 54, 540.00),#6
+        ("Sandisk pen drive 32 gb", "Top selling pen drive by Sandisk", 54, 540.00),
         ("Timex Men's Watch", "Best in men class", 132, 5000.00),
         ("Timex Women's Watch", "Best in women class", 123, 7000.00),
-        ("SG Full Size Bat", "Best for batting", 546, 900.00),#9
+        ("SG Full Size Bat", "Best for batting", 546, 900.00),
         ("Adidas Football", "Best for football", 234, 1000.00),
         ("Apple iPhone 8", "Latest by apple", 0, 70000.00);
         
@@ -69,17 +69,25 @@ VALUES  (1,  "image.com/id101"),
         (8,  "image.com/id802");
         
         
-INSERT INTO orders(user_id, product_id, total, address_id, quantity, order_time,deliver_time, status)
-VALUES  (2, 1, 124000.00, 2, 1, '2018-07-07 14:29:36', NULL, "placed"),
-        (2, 1, 124000.00, 6, 2, '2018-10-04 14:29:36', '2018-11-04 14:29:36', "delivered"),
-        (3, 3, 143580.00, 3, 3, '2018-08-04 14:29:36', '2018-08-06 14:29:36', "returned"),
-        (5, 7, 820.00   , 5, 4, '2018-07-07 14:29:36', NULL, "placed"),
-        (5, 7, 1800.00  , 5, 5, '2018-07-19 14:29:36', NULL, "placed");
+INSERT INTO orders(user_id, address_id, total, order_time)
+VALUES  (2, 1, 124000.00,'2018-07-12 14:29:36' ),
+        (3, 3, 143580.00, '2018-07-04 14:29:36'),
+        (5, 7, 820.00, '2018-07-07 14:29:36'),
+        (5, 7, 1800.00, '2018-07-19 14:29:36'),
+        (5, 7, 1800.00, '2021-03-05 14:29:36');
 
+INSERT INTO order_item(product_id, order_id, status, quantity,  deliver_time)
+VALUES  (2, 1,  NULL, 2,  NULL),
+        (4, 2,  "placed", 3,  NULL),
+        (6, 2,  "shipped", 2,  NULL),
+        (5, 3,  "delivered", 2,  '2018-07-20 17:29:36'),
+        (9, 4, "returned", 2,  '2018-07-25 17:29:36'),
+        (9, 5, "placed", 2,  NULL);
 
 
 INSERT INTO product(name, description, quantity, price)
 VALUES  ("Apple iPhone 8", "Latest by apple", 0, 70000.00);
+
 
 
 
