@@ -1,7 +1,9 @@
 
 
-DROP VIEW order_info;
+DROP VIEW IF EXISTS order_info;
 
+#Create a view displaying the order information (Id, Title, Price, Shopper’s name, Email, Orderdate, Status) 
+#with latest ordered items should be displayed first for last 60 days.
 CREATE VIEW order_info
 AS SELECT orders.id, product.name, product.price, users.first_name, users.email, orders.order_time, order_item.status
 FROM orders
@@ -17,11 +19,12 @@ ORDER BY orders.order_time DESC;
 SELECT * 
 FROM order_info;
 
+#Use the above view to display the Products(Items) which are in ‘shipped’ state.
 SELECT * 
 FROM order_info 
 WHERE status = "shipped";
 
-
+# Use the above view to display the top 5 most selling products.
 SELECT name,COUNT(name) as total_quantity
 FROM order_info 
 GROUP BY order_info.name

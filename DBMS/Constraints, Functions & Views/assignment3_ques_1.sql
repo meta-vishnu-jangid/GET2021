@@ -1,21 +1,22 @@
 show databases;
 
-drop database storeFront;
+drop database IF EXISTS storeFront;
 
 create database storeFront;
 
 use storeFront;
 
+#creating users table
 create table users (  
     id INT NOT NULL AUTO_INCREMENT, 
     first_name VARCHAR(50) NOT NULL, 
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    type VARCHAR(7) CHECK(type IN ("admin", "shopper")), 
+    type VARCHAR(7) CHECK(type ="admin"), 
     PRIMARY KEY(id)
 ) ;
 
-
+#creating zipcode table
 CREATE TABLE zipcode(
     city VARCHAR(30) NOT NULL,
     state VARCHAR(30) NOT NULL,
@@ -23,6 +24,8 @@ CREATE TABLE zipcode(
     PRIMARY KEY(pincode)
 );
 
+
+#creating address table
 CREATE TABLE address
 (
     id INTEGER AUTO_INCREMENT,
@@ -37,7 +40,7 @@ CREATE TABLE address
 );
 
 
-
+#creating category table
 create table category (  
     id INT NOT NULL AUTO_INCREMENT , 
     title VARCHAR(100) NOT NULL , 
@@ -45,6 +48,7 @@ create table category (
     FOREIGN KEY(parent_category) REFERENCES category(id) 
 );
 
+#creating product table
 create table product (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -55,6 +59,8 @@ create table product (
     PRIMARY KEY(id)
 ) ;
 
+
+#creating table for map between category and product
 CREATE TABLE product_category(
     product_id INT NOT NULL,
     category_id INT NOT NULL,
@@ -64,7 +70,7 @@ CREATE TABLE product_category(
 );
 
 
-
+#creataing product_image table
 create table product_image (
     id INTEGER AUTO_INCREMENT,
     product_id INT NOT NULL, 
@@ -73,6 +79,7 @@ create table product_image (
     FOREIGN KEY(product_id) REFERENCES product(id)
 );
 
+#cretaing category table
 CREATE TABLE orders (
     id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -84,6 +91,7 @@ CREATE TABLE orders (
     FOREIGN KEY(address_id) REFERENCES address(id)
 );
 
+#creating order_item table
 CREATE TABLE order_item (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
@@ -107,7 +115,7 @@ DROP TABLE product;
 
 SHOW TABLES;
 
-
+#again creating table
 create table product (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -158,6 +166,8 @@ CREATE TABLE order_item (
 );
 
 SHOW TABLES;
+
+// INSERTING DATA INTO TABLES
 
 INSERT INTO users(first_name, last_name, type,email) 
 VALUES  ("first1", "last1", "admin", "xyz1@gmail.com"),
@@ -245,6 +255,7 @@ VALUES  (2, 1, 124000.00,'2021-01-16 14:29:36' ),
         (3, 3, 143580.00, '2021-01-04 14:29:36'),
         (5, 7, 820.00, '2021-02-07 16:29:36'),
         (5, 7, 1800.00, '2021-03-19 14:29:36'),
+        (5, 7, 1800.00, '2021-03-05 14:29:36'),
         (5, 7, 1800.00, '2021-03-05 14:29:36');
 
 INSERT INTO order_item(product_id, order_id, status, quantity,  deliver_time)
@@ -253,12 +264,13 @@ VALUES  (2, 1,  "placed", 2,  NULL),
         (6, 2,  "shipped", 2,  NULL),
         (5, 3,  "delivered", 2,  '2021-03-20 17:29:36'),
         (9, 4, "shipped", 2,  '2021-03-25 17:29:36'),
-        (9, 5, "placed", 2,  NULL);
+        (5, 6, "placed", 6,  NULL);
 
 
 INSERT INTO product(name, description, quantity, price)
 VALUES  ("Apple iPhone 8", "Latest by apple", 0, 70000.00);
 
 
+SELECT * FROM users;
 
 
