@@ -1,11 +1,12 @@
 show databases;
 
-drop database storeFront;
+drop database IF EXISTS storeFront;
 
 create database storeFront;
 
 use storeFront;
 
+#Creating user table 
 create table users (  
     id INT NOT NULL AUTO_INCREMENT, 
     first_name VARCHAR(50) NOT NULL, 
@@ -14,6 +15,7 @@ create table users (
     PRIMARY KEY(id)
 ) ;
 
+#Creating address table
 CREATE TABLE address
 (
     id INTEGER AUTO_INCREMENT,
@@ -28,7 +30,7 @@ CREATE TABLE address
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
-
+#Creating category table
 create table category (  
     id INT NOT NULL AUTO_INCREMENT , 
     title VARCHAR(100) NOT NULL , 
@@ -36,6 +38,7 @@ create table category (
     FOREIGN KEY(parent_category) REFERENCES category(id) 
 );
 
+#Creating product table
 create table product (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -45,6 +48,7 @@ create table product (
     PRIMARY KEY(id)
 ) ;
 
+#Creating product_category table
 CREATE TABLE product_category(
     product_id INT NOT NULL,
     category_id INT NOT NULL,
@@ -53,8 +57,7 @@ CREATE TABLE product_category(
     FOREIGN KEY(category_id) REFERENCES category(id) 
 );
 
-
-
+#Creating product_image table
 create table product_image (
     id INTEGER AUTO_INCREMENT,
     product_id INT NOT NULL, 
@@ -63,6 +66,8 @@ create table product_image (
     FOREIGN KEY(product_id) REFERENCES product(id)
 );
 
+
+#Creating orders table
 CREATE TABLE orders (
     id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -74,6 +79,8 @@ CREATE TABLE orders (
     FOREIGN KEY(address_id) REFERENCES address(id)
 );
 
+
+#Creating order_item table to store items of orders
 CREATE TABLE order_item (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
@@ -88,15 +95,16 @@ CREATE TABLE order_item (
 
 SHOW TABLES;
 
-DROP TABLE orders;
-DROP TABLE order_item;
-DROP TABLE product_image;
-DROP TABLE product_category;
-DROP TABLE product;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS order_item;
+DROP TABLE IF EXISTS  product_image;
+DROP TABLE IF EXISTS  product_category;
+DROP TABLE IF EXISTS  product;
 
 
 SHOW TABLES;
 
+# again creating all tables
 create table product (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,

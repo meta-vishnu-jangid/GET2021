@@ -7,6 +7,7 @@ VALUES  ("first1", "last1", "admin"),
         ("first5", "last5", "shopper");
         
         
+
 INSERT INTO address(user_id, house_no, street, city, state, pincode)
 VALUES  (1, "1", "ABC1", "jaipur", "rajasthan", "302017"),
         (2, "2", "ABC2", "jaipur", "rajasthan", "302016"),
@@ -17,6 +18,7 @@ VALUES  (1, "1", "ABC1", "jaipur", "rajasthan", "302017"),
         (3, "7", "ABC7", "jaipur", "rajasthan", "302021");
         
         
+
 INSERT INTO category(title, parent_category)
 VALUES  ("Eletronics", NULL),
         ("Mobile", 1),
@@ -32,6 +34,7 @@ VALUES  ("Eletronics", NULL),
         ("Cricket", 11),
         ("Football", 11);
         
+
 INSERT INTO product(name, description, quantity, price)
 VALUES  ("Apple iPhone X", "Latest by apple", 13, 70000.00),
         ("Samsung S9", "Latest by samsung", 121, 62000.00),
@@ -44,6 +47,7 @@ VALUES  ("Apple iPhone X", "Latest by apple", 13, 70000.00),
         ("SG Full Size Bat", "Best for batting", 546, 900.00),
         ("Adidas Football", "Best for football", 234, 1000.00),
         ("Apple iPhone 8", "Latest by apple", 0, 70000.00);
+
         
 INSERT INTO product_category(product_id, category_id)
 VALUES  (1, 2),
@@ -57,6 +61,7 @@ VALUES  (1, 2),
         (9, 12),
         (10, 13);
         
+
 INSERT INTO product_image(product_id, image_url)
 VALUES  (1,  "image.com/id101"),
         (1, "image.com/id102"),
@@ -69,12 +74,15 @@ VALUES  (1,  "image.com/id101"),
         (8,  "image.com/id802");
         
         
+
 INSERT INTO orders(user_id, address_id, total, order_time)
 VALUES  (2, 1, 124000.00,'2018-07-12 14:29:36' ),
         (3, 3, 143580.00, '2018-07-04 14:29:36'),
         (5, 7, 820.00, '2018-07-07 14:29:36'),
         (5, 7, 1800.00, '2018-07-19 14:29:36'),
         (5, 7, 1800.00, '2021-03-05 14:29:36');
+
+
 
 INSERT INTO order_item(product_id, order_id, status, quantity,  deliver_time)
 VALUES  (2, 1,  NULL, 2,  NULL),
@@ -83,6 +91,7 @@ VALUES  (2, 1,  NULL, 2,  NULL),
         (5, 3,  "delivered", 2,  '2018-07-20 17:29:36'),
         (9, 4, "returned", 2,  '2018-07-25 17:29:36'),
         (9, 5, "placed", 2,  NULL);
+
 
 
 INSERT INTO product(name, description, quantity, price)
