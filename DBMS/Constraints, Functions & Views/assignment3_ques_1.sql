@@ -12,7 +12,7 @@ create table users (
     first_name VARCHAR(50) NOT NULL, 
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    type VARCHAR(7) CHECK(type ="admin"), 
+    type VARCHAR(7) CHECK(type IN ("admin","shopper") ), 
     PRIMARY KEY(id)
 ) ;
 
@@ -35,8 +35,8 @@ CREATE TABLE address
     country VARCHAR(30) DEFAULT "India",
     pincode VARCHAR(6) NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(pincode) REFERENCES zipcode(pincode)
+    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY(pincode) REFERENCES zipcode(pincode) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -44,9 +44,11 @@ CREATE TABLE address
 create table category (  
     id INT NOT NULL AUTO_INCREMENT , 
     title VARCHAR(100) NOT NULL , 
-    parent_category INT, PRIMARY KEY(ID), 
-    FOREIGN KEY(parent_category) REFERENCES category(id) 
+    parent_category INT, 
+    PRIMARY KEY(ID), 
+    FOREIGN KEY(parent_category) REFERENCES category(id) ON DELETE CASCADE ON UPDATE CASCADE 
 );
+
 
 #creating product table
 create table product (
@@ -65,8 +67,8 @@ CREATE TABLE product_category(
     product_id INT NOT NULL,
     category_id INT NOT NULL,
     PRIMARY KEY(product_id, category_id),
-    FOREIGN KEY(product_id) REFERENCES product(id),
-    FOREIGN KEY(category_id) REFERENCES category(id) 
+    FOREIGN KEY(product_id) REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY(category_id) REFERENCES category(id) ON DELETE CASCADE ON UPDATE CASCADE 
 );
 
 
@@ -76,7 +78,7 @@ create table product_image (
     product_id INT NOT NULL, 
     image_url TEXT NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(product_id) REFERENCES product(id)
+    FOREIGN KEY(product_id) REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 #cretaing category table
@@ -87,8 +89,8 @@ CREATE TABLE orders (
     total FLOAT NOT NULL,
     address_id INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(address_id) REFERENCES address(id)
+    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY(address_id) REFERENCES address(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 #creating order_item table
@@ -98,8 +100,8 @@ CREATE TABLE order_item (
     quantity INT NOT NULL,
     deliver_time DATETIME,
     status VARCHAR(30) CHECK(status IN ("shipped", "placed","delivered","returned")) ,
-    PRIMARY KEY(order_id,product_id),
-    FOREIGN KEY(product_id) REFERENCES product(id)
+    PRIMARY KEY(order_id,product_id) ,
+    FOREIGN KEY(product_id) REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -130,8 +132,8 @@ CREATE TABLE product_category(
     product_id INT NOT NULL,
     category_id INT NOT NULL,
     PRIMARY KEY(product_id, category_id),
-    FOREIGN KEY(product_id) REFERENCES product(id),
-    FOREIGN KEY(category_id) REFERENCES category(id) 
+    FOREIGN KEY(product_id) REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY(category_id) REFERENCES category(id) ON DELETE CASCADE ON UPDATE CASCADE  
 );
 
 
@@ -141,7 +143,7 @@ create table product_image (
     product_id INT NOT NULL, 
     image_url TEXT NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(product_id) REFERENCES product(id)
+    FOREIGN KEY(product_id) REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE orders (
@@ -151,8 +153,8 @@ CREATE TABLE orders (
     total FLOAT NOT NULL,
     address_id INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(address_id) REFERENCES address(id)
+    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE, 
+    FOREIGN KEY(address_id) REFERENCES address(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE order_item (
@@ -162,15 +164,13 @@ CREATE TABLE order_item (
     deliver_time DATETIME,
     status VARCHAR(30) NOT NULL CHECK(status IN ("shipped", "placed","delivered","returned")) ,
     PRIMARY KEY(order_id,product_id),
-    FOREIGN KEY(product_id) REFERENCES product(id)
+    FOREIGN KEY(product_id) REFERENCES product(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 SHOW TABLES;
 
-// INSERTING DATA INTO TABLES
-
 INSERT INTO users(first_name, last_name, type,email) 
-VALUES  ("first1", "last1", "admin", "xyz1@gmail.com"),
+VALUES  ("first1", "last1", "admin1", "xyz1@gmail.com"),
         ("first2", "last2", "shopper", "xyz2@gmail.com"),
         ("first3", "last3", "shopper", "xyz3@gmail.com"),
         ("first4", "last4", "shopper", "xyz4@gmail.com"),
@@ -196,7 +196,7 @@ VALUES  (1, "1", "ABC1",  "302017"),
         
         
 INSERT INTO category(title, parent_category)
-VALUES  ("Eletronics", NULL),
+VALUES  ("Eletronics", 1),
         ("Mobile", 1),
         ("Laptops", 1),
         ("Mobile Accessories", 2),
@@ -205,7 +205,7 @@ VALUES  ("Eletronics", NULL),
         ("Men's Fashion", 6),
         ("Women's Fashion", 6),
         ("Men's Watch", 7),
-        ("Women's Watch", 8),
+        ("Women's Watch", 6),
         ("Sports", NULL),
         ("Cricket", 11),
         ("Football", 11);
@@ -271,6 +271,5 @@ INSERT INTO product(name, description, quantity, price)
 VALUES  ("Apple iPhone 8", "Latest by apple", 0, 70000.00);
 
 
-SELECT * FROM users;
 
 
