@@ -20,6 +20,8 @@ END$$
 DELIMITER ; 
 
 CALL averageSales(03,2021);
+CALL averageSales(02,2021);
+CALL averageSales(01,2021);
 
 
 
@@ -47,3 +49,4 @@ END$$
 DELIMITER ;
 
 CALL orderDeatailInPeriod("2021-01-01","2021-02-01");
+CALL orderDeatailInPeriod("2021-03-01","2021-02-28");

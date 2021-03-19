@@ -21,6 +21,8 @@ END//
 DELIMITER ;
 
 SELECT numberOfOrdersInMonth(03,2021);
+SELECT numberOfOrdersInMonth(02,2021);
+SELECT numberOfOrdersInMonth(01,2021);
 
 
 
@@ -47,3 +49,4 @@ END//
 DELIMITER ;
 
 SELECT monthWithMaxOrderInYear(2021);
+SELECT monthWithMaxOrderInYear(2020);
