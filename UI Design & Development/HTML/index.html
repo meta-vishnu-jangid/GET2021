@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Metacube Parking System</title>
+</head>
+
+<body>
+    <!-- Header Starts Here -->
+    <header>
+        <!-- Navigation Bar Starts Here -->
+        <nav>
+            <a href="#addEmployee">Add Employee</a> |
+            <a href="#addVehicle">Add Vehicle</a> |
+            <a href="#feedback">Give Feedback</a> |
+            <a href="#pricing">Pricing</a>
+        </nav>
+        <!-- Navigation Bar Ends Here -->
+        <img src="./assets/img/mps.jfif" width="100%" /><br /><br />
+    </header>
+    <!-- Header Ends Here -->
+
+    <!-- Add Employee Section Starts Here -->
+    <section id="addEmployee">
+        <h1>Add Employee</h1>
+        <form>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"><br /><br />
+            <span>Gender :</span>
+            <label>
+                <input type="radio" name="gender" />Male
+            </label>
+            <label>
+                <input type="radio" name="gender" />Female
+            </label><br /><br />
+            <input type="email" id="email" name="email" placeholder="Enter your email "><br /><br />
+            <input type="email" id="contactNo" name="contactNo" placeholder="Enter your contact number "><br /><br />
+            <input type="password" id="password" name="password" placeholder="Enter password"><br /><br />
+            <input type="password" id="rePassword" name="rePassword" placeholder="Confirm Password "><br /><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+    <!-- Add Employee Section Ends Here -->
+
+    <!-- Add Vehicle Section Starts Here -->
+    <section id="addVehicle">
+        <h1>Add Vehicle</h1>
+        <form>
+
+            <input type="text" id="vehicleCompany" name="vehicleCompany"
+                placeholder="Enter Vehicle Manufacturer Name"><br /><br />
+            <input type="text" id="vehicleModel" name="vehicleModel" placeholder="Enter Vehicle Model"><br><br>
+            <span>Vehicle Type :</span>
+            <label>
+                <input type="radio" name="vehicleType" />Two Wheeler
+            </label>
+            <label>
+                <input type="radio" name="vehicleType" />Four Wheeler
+            </label>
+            <br /><br />
+            <input type="text" id="vehicleNo" name="vehicleNo" placeholder="Enter Vehicle Number"><br /><br />
+            <input type="text" id="employeeId" name="employeeId" placeholder="Enter Employee ID"><br /><br />
+            <textarea id="Identification" name="Identification" placeholder="Enter Identification of Vehicle"></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+    </section>
+    <!-- Add Vehicle Section Ends Here -->
+
+    <!-- Feedback Section Starts Here -->
+    <section id="feedback">
+        <h1>Feedback</h1>
+        <form action="#">
+            <input type="text" placeholder="Enter your name" name="feedbackFullName" id="feedbackFullName"><br><br>
+            <input type="email" placeholder="Enter your Email Id" name="feedbackEmail" id="feedbackEmail"><br><br>
+            <input type="text" placeholder="Enter Subject" name="feedbackSubject" id="feedbackSubject"><br><br>
+            <textarea placeholder="Enter Message" name="feedbackMessage" id="feedbackMessage" cols="30" rows="10"></textarea><br><br>
+            <input type="submit" value="Send Message"><br><br>
+        </form>
+    </section>
+    <!-- Feedback Section Ends Here -->
+
+    <!-- Pricing Section Starts Here -->
+    <section id="pricing">
+        <h1>Pricing</h1>
+
+        <div id="cyclePricing">
+            <h3>Cycle Pricing</h3>
+            <span>$5 per Day</span><br><br>
+            <span>$100 per Month</span><br><br>
+            <span>$500 per Year</span><br><br>
+            <button id="cyclePricingBtn" name="cyclePricingBtn">Purchase</button>
+        </div>
+
+        <div id="motorCyclePricing">
+            <h3>Motor Cycle Pricing</h3>
+            <span>$10 per Day</span><br><br>
+            <span>$200 per Month</span><br><br>
+            <span>$1000 per Year</span><br><br>
+            <button id="motorCyclePricingBtn" name="motorCyclePricingBtn">Purchase</button>
+        </div>
+
+        <div id="fourWheelerPricing">
+            <h3>Four Wheeler Pricing</h3>
+            <span>$20 per Day</span><br><br>
+            <span>$500 per Month</span><br><br>
+            <span>$3500 per Year</span><br><br>
+            <button id="fourWheelerPricingBtn" name="fourWheelerPricingBtn">Purchase</button>
+        </div>
+    </section>
+    <!-- Pricing Section Ends Here -->
+
+</body>
+
+</html>
