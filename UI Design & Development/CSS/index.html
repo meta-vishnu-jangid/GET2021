@@ -13,22 +13,22 @@
     <header>
         <!-- Navigation Bar Starts Here -->
         <nav>
-            <a class="nav-item" href="#addEmployeeSection">Add Employee</a> |
-            <a class="nav-item" href="#addVehicleSection">Add Vehicle</a> |
-            <a class="nav-item" href="#feedbackSection">Give Feedback</a> |
-            <a class="nav-item" href="#pricingSection">Pricing</a>
+            <a class="nav-item" href="#addEmployeeSection" title="Go to Add Employee Section">Add Employee</a> |
+            <a class="nav-item" href="#addVehicleSection" title="Go to Add Vehicle Section">Add Vehicle</a> |
+            <a class="nav-item" href="#feedbackSection" title="Go to  Feedback Section"> Give Feedback</a> |
+            <a class="nav-item" href="#pricingSection" title="Go to  Pricing Section">Pricing</a>
         </nav>
         <!-- Navigation Bar Ends Here -->
-        <img src="./assets/img/mps.jfif" width="100%" />
+        <img src="./assets/img/mps.jfif" width="100%" alt="Parking System Banner" />
     </header>
     <!-- Header Ends Here -->
 
     <!-- Add Employee Section Starts Here -->
     <section id="addEmployeeSection">
         <h1 class="heading">Add Employee<span class="float-right">+</span></h1>
-        <form class="form-group collapsed">
-            <input class="form-input" type="text" id="fullName" name="fullName" placeholder="Enter your full name"><br /><br />
-            <div class="form-checkbox-block">
+        <form class="form-group">
+            <input class="form-input" title="Enter your full name" type="text" id="fullName" name="fullName" placeholder="Enter your full name"><br /><br />
+            <div class="form-checkbox-block" title="Select your gender">
                 <span class="form-checkbox-heading">Gender :</span>
                 <label class="form-check">
                     <input type="radio" name="gender" />Male
@@ -37,11 +37,11 @@
                     <input type="radio" name="gender" />Female
                 </label>
             </div><br>
-            <input class="form-input" type="email" id="email" name="email" placeholder="Enter your email "><br /><br />
-            <input class="form-input" type="email" id="contactNo" name="contactNo" placeholder="Enter your contact number "><br /><br />
-            <input class="form-input" type="password" id="password" name="password" placeholder="Enter password"><br /><br />
-            <input class="form-input" type="password" id="rePassword" name="rePassword" placeholder="Confirm Password "><br /><br>
-            <input class="form-submit-btn" type="submit" value="Submit">
+            <input class="form-input" type="email" id="email" name="email" title="Enter your email " placeholder="Enter your email "><br /><br />
+            <input class="form-input" type="email" id="contactNo" name="contactNo" title="Enter your contact number" placeholder="Enter your contact number"><br /><br />
+            <input class="form-input" type="password" id="password" name="password" title="Enter password" placeholder="Enter password"><br /><br />
+            <input class="form-input" type="password" id="rePassword" name="rePassword" title="Enter Password again for Confiramation" placeholder="Confirm Password"><br /><br>
+            <input class="form-submit-btn" title="Submit" type="submit" value="Submit">
         </form>
     </section>
     <!-- Add Employee Section Ends Here -->
@@ -50,9 +50,9 @@
     <section id="addVehicleSection">
         <h1 class="heading">Add Vehicle <span class="float-right">+</span></h1>
         <form class="form-group">
-            <input class="form-input" type="text" id="vehicleCompany" name="vehicleCompany" placeholder="Enter Vehicle Manufacturer Name"><br /><br />
-            <input class="form-input" type="text" id="vehicleModel" name="vehicleModel" placeholder="Enter Vehicle Model"><br><br>
-            <div class="form-checkbox-block">
+            <input class="form-input" type="text" id="vehicleCompany" name="vehicleCompany" title="Enter Vehicle Manufacturer Name" placeholder="Enter Vehicle Manufacturer Name"><br /><br />
+            <input class="form-input" type="text" id="vehicleModel" name="vehicleModel" title="Enter Vehicle Model" placeholder="Enter Vehicle Model"><br><br>
+            <div title="Select Vehicle Type" class="form-checkbox-block">
                 <span class="form-checkbox-heading">Vehicle Type :</span>
                 <div class="label-block">
                     <label class="form-check">
@@ -67,10 +67,10 @@
                 </div>
             </div>
             <br />
-            <input class="form-input" type="text" id="vehicleNo" name="vehicleNo" placeholder="Enter Vehicle Number"><br /><br />
-            <input class="form-input" type="text" id="employeeId" name="employeeId" placeholder="Enter Employee ID"><br /><br />
-            <textarea class="form-input" id="Identification" name="Identification" placeholder="Enter Identification of Vehicle"></textarea><br><br>
-            <input class="form-submit-btn" type="submit" value="Submit">
+            <input class="form-input" type="text" id="vehicleNo" name="vehicleNo" title="Enter Vehicle Number" placeholder="Enter Vehicle Number"><br /><br />
+            <input class="form-input" type="text" id="employeeId" name="employeeId" title="Enter Employee ID" placeholder="Enter Employee ID"><br /><br />
+            <textarea class="form-input" id="Identification" name="Identification" title="Enter Identification of Vehicle" placeholder="Enter Identification of Vehicle"></textarea><br><br>
+            <input class="form-submit-btn" title="Submit" type="submit" value="Submit">
         </form>
 
     </section>
@@ -80,17 +80,17 @@
     <section id="feedbackSection">
         <h1 class="heading">Feedback</h1>
         <form class="form-group" action="#">
-            <input class="form-input" type="text" placeholder="Enter your name" name="feedbackFullName" id="feedbackFullName"><br><br>
-            <input class="form-input" type="email" placeholder="Enter your Email Id" name="feedbackEmail" id="feedbackEmail"><br><br>
-            <input class="form-input" type="text" placeholder="Enter Subject" name="feedbackSubject" id="feedbackSubject"><br><br>
-            <textarea class="form-input" placeholder="Enter Message" name="feedbackMessage" id="feedbackMessage" cols="30" rows="5"></textarea><br><br>
-            <input class="form-submit-btn" type="submit" value="Send Message"><br><br>
+            <input class="form-input" type="text" title="Enter your name" placeholder="Enter your name" name="feedbackFullName" id="feedbackFullName"><br><br>
+            <input class="form-input" type="email" title="Enter your Email Id" placeholder="Enter your Email Id" name="feedbackEmail" id="feedbackEmail"><br><br>
+            <input class="form-input" type="text" title="Enter Subject" placeholder="Enter Subject" name="feedbackSubject" id="feedbackSubject"><br><br>
+            <textarea class="form-input" title="Enter Message" placeholder="Enter Message" name="feedbackMessage" id="feedbackMessage" cols="30" rows="5"></textarea><br><br>
+            <input class="form-submit-btn" title="Send Message" type="submit" value="Send Message"><br><br>
         </form>
     </section>
     <!-- Feedback Section Ends Here -->
 
     <!-- Pricing Section Starts Here -->
-    <section id="pricingSection">
+    <section id="pricingSection" class="mb-10">
         <h1 class="heading">Pricing</h1>
         <div class="pricing-container">
             <div id="cyclePricing" class="pricing-card">
