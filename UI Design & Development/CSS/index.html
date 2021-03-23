@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Metacube Parking System</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header Starts Here -->
+    <header>
+        <!-- Navigation Bar Starts Here -->
+        <nav>
+            <a class="nav-item" href="#addEmployeeSection">Add Employee</a> |
+            <a class="nav-item" href="#addVehicleSection">Add Vehicle</a> |
+            <a class="nav-item" href="#feedbackSection">Give Feedback</a> |
+            <a class="nav-item" href="#pricingSection">Pricing</a>
+        </nav>
+        <!-- Navigation Bar Ends Here -->
+        <img src="./assets/img/mps.jfif" width="100%" />
+    </header>
+    <!-- Header Ends Here -->
+
+    <!-- Add Employee Section Starts Here -->
+    <section id="addEmployeeSection">
+        <h1 class="heading">Add Employee<span class="float-right">+</span></h1>
+        <form class="form-group collapsed">
+            <input class="form-input" type="text" id="fullName" name="fullName" placeholder="Enter your full name"><br /><br />
+            <div class="form-checkbox-block">
+                <span class="form-checkbox-heading">Gender :</span>
+                <label class="form-check">
+                    <input type="radio" name="gender" />Male
+                </label>
+                <label class="form-check">
+                    <input type="radio" name="gender" />Female
+                </label>
+            </div><br>
+            <input class="form-input" type="email" id="email" name="email" placeholder="Enter your email "><br /><br />
+            <input class="form-input" type="email" id="contactNo" name="contactNo" placeholder="Enter your contact number "><br /><br />
+            <input class="form-input" type="password" id="password" name="password" placeholder="Enter password"><br /><br />
+            <input class="form-input" type="password" id="rePassword" name="rePassword" placeholder="Confirm Password "><br /><br>
+            <input class="form-submit-btn" type="submit" value="Submit">
+        </form>
+    </section>
+    <!-- Add Employee Section Ends Here -->
+
+    <!-- Add Vehicle Section Starts Here -->
+    <section id="addVehicleSection">
+        <h1 class="heading">Add Vehicle <span class="float-right">+</span></h1>
+        <form class="form-group">
+            <input class="form-input" type="text" id="vehicleCompany" name="vehicleCompany" placeholder="Enter Vehicle Manufacturer Name"><br /><br />
+            <input class="form-input" type="text" id="vehicleModel" name="vehicleModel" placeholder="Enter Vehicle Model"><br><br>
+            <div class="form-checkbox-block">
+                <span class="form-checkbox-heading">Vehicle Type :</span>
+                <div class="label-block">
+                    <label class="form-check">
+                        <input type="radio" name="vehicleType" />Cycle
+                    </label>
+                    <label class="form-check">
+                        <input type="radio" name="vehicleType" />Motor Cycle
+                    </label>
+                    <label class="form-check">
+                        <input type="radio" name="vehicleType" />Four Wheeler
+                    </label>
+                </div>
+            </div>
+            <br />
+            <input class="form-input" type="text" id="vehicleNo" name="vehicleNo" placeholder="Enter Vehicle Number"><br /><br />
+            <input class="form-input" type="text" id="employeeId" name="employeeId" placeholder="Enter Employee ID"><br /><br />
+            <textarea class="form-input" id="Identification" name="Identification" placeholder="Enter Identification of Vehicle"></textarea><br><br>
+            <input class="form-submit-btn" type="submit" value="Submit">
+        </form>
+
+    </section>
+    <!-- Add Vehicle Section Ends Here -->
+
+    <!-- Feedback Section Starts Here -->
+    <section id="feedbackSection">
+        <h1 class="heading">Feedback</h1>
+        <form class="form-group" action="#">
+            <input class="form-input" type="text" placeholder="Enter your name" name="feedbackFullName" id="feedbackFullName"><br><br>
+            <input class="form-input" type="email" placeholder="Enter your Email Id" name="feedbackEmail" id="feedbackEmail"><br><br>
+            <input class="form-input" type="text" placeholder="Enter Subject" name="feedbackSubject" id="feedbackSubject"><br><br>
+            <textarea class="form-input" placeholder="Enter Message" name="feedbackMessage" id="feedbackMessage" cols="30" rows="5"></textarea><br><br>
+            <input class="form-submit-btn" type="submit" value="Send Message"><br><br>
+        </form>
+    </section>
+    <!-- Feedback Section Ends Here -->
+
+    <!-- Pricing Section Starts Here -->
+    <section id="pricingSection">
+        <h1 class="heading">Pricing</h1>
+        <div class="pricing-container">
+            <div id="cyclePricing" class="pricing-card">
+                <h3 class="card-heading">CYCLE </h3>
+                <span class="circle"><p>$100 / Month</p></span><br><br>
+                <span>$5 per Day</span><br>
+                <span>$100 per Month</span><br>
+                <span>$500 per Year</span><br><br>
+                <button class="pricing-btn" id="cyclePricingBtn" name="cyclePricingBtn">Purchase</button>
+            </div>
+
+            <div id="motorCyclePricing" class="pricing-card">
+                <h3 class="card-heading">MOTOR CYCLE</h3>
+                <span class="circle"><p>$200 / Month</p></span><br><br>
+                <span>$10 per Day</span><br>
+                <span>$200 per Month</span><br>
+                <span>$1000 per Year</span><br><br>
+                <button class="pricing-btn" id="motorCyclePricingBtn" name="motorCyclePricingBtn">Purchase</button>
+            </div>
+
+            <div id="fourWheelerPricing" class="pricing-card">
+                <h3 class="card-heading">FOUR WHEELER</h3>
+                <span class="circle"><p>$500 / Month</p></span><br><br>
+                <span>$20 per Day</span><br>
+                <span>$500 per Month</span><br>
+                <span>$3500 per Year</span><br><br>
+                <button class="pricing-btn" id="fourWheelerPricingBtn" name="fourWheelerPricingBtn">Purchase</button>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section Ends Here -->
+
+</body>
+
+</html>
