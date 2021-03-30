@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,900&display=swap" rel="stylesheet">
+    <title>Annex</title>
+</head>
+
+<body>
+    <div class="fluid-container">
+        <div class="row mx-0">
+            <nav class="navbar nav-sidebar navbar-expand-lg col-lg-2 p-0 bg-white" style="z-index: 6;">
+                <div id="navbarSupportedContent" class="navbar-collapse collapse">
+
+                    <aside class="sidebar pb-4 w-100" style="height: 100vh;">
+                        <button class="navbar-toggler navbar-toggler-fixed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">X</span>
+                        </button>
+                        <div class="logo row pt-5 mx-auto pb-5" style="height: 20%;">
+                            <div class="mx-auto row">
+                                <i style="font-size:large;" class=" bi bi-bookmark-star-fill"></i>
+                                <a href="#" class="text-decoration-none text-dark d-inline text-center font-weight-bold">ANNEX</a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-menu overflow-auto" style="height: 80%;">
+                            <ul class="list-group">
+                                <li class="ml-4 mb-1 menu-heading">Main</li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                                        <i class="bi bi-cast mr-1"></i> Dashboard
+                                        <span class="badge badge-primary badge-pill float-right mt-3">14</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <button class="list-group-item list-group-item-action dropdown-toggle" type="button" id="advanceUIDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-stack mr-1"></i> Advanced UI
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="advanceUIDropdown">
+                                        <li class="list-group-item list-group-item-action dropdown-item" type="button">Action</li>
+                                        <li class="list-group-item list-group-item-action dropdown-item" type="button">Another action</li>
+                                        <li class="list-group-item list-group-item-action dropdown-item" type="button">Something else here</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-calendar-date mr-1"></i> Calendar
+                                    </a>
+                                </li>
+                                <li class="ml-4 my-1 menu-heading">Components</li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-bullseye mr-1"></i> UI Elements
+                                    </a>
+                                </li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-clipboard mr-1"></i> Forms
+                                    </a>
+                                </li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-speedometer mr-1"></i> Charts
+                                    </a>
+                                </li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-table mr-1"></i> Tables
+                                    </a>
+                                </li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-geo mr-1"></i> Maps
+                                    </a>
+                                </li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-file-break mr-1"></i> Pages
+                                    </a>
+                                </li>
+                                <li>
+                                    <a type="button" class="list-group-item list-group-item-action" aria-current="true">
+                                        <i class="bi bi-award mr-1"></i> Awards
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </nav>
+            <div class="col col-lg-10 ml-auto  px-0 content">
+                <header>
+                    <nav class="navbar navbar-expand-lg navbar-dark py-2">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2 search-bar" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                        <div class="d-flex flex-row-reverse w-100">
+                            <ul class="navbar-nav ml-3">
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link " href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="./assets/images/avatar-1.jpg" class="img-fluid user-photo" alt="user-photo">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                                        <h6 class="dropdown-heading">Welcome</h6>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#"> <i class="mr-1 bi bi-person-circle"></i> Profile</a>
+                                        <a class="dropdown-item" href="#"><i class="mr-1 bi bi-wallet2"></i>My Wallet</a>
+                                        <a class="dropdown-item" href="#"><i class="mr-1 bi bi-gear"></i>Settings</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#"><i class="mr-1 bi bi-box-arrow-right"></i>  Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul class="navbar-nav ml-3">
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link " title="Notifications" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bi bi-bell"></i><span class="ml-1  badge badge-danger">4</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right notifications" aria-labelledby="notificationDropdown">
+                                        <h6 class="dropdown-heading">Notifications</h6>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div class="notification-icon">
+                                                        <i class="bi bi-cart3"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-10 pl-4">
+                                                    <h6 class="notification-heading">Your order is placed</h6>
+                                                    <p class="notification-message">Your order is placed and your order id is 12334</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div class="notification-icon bg-success">
+                                                        <i class="bi bi-chat-left-dots-fill"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-10 pl-4">
+                                                    <h6 class="notification-heading">New Message Recieved</h6>
+                                                    <p class="notification-message">You have 87 unread messaged</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div class="notification-icon">
+                                                        <i class="bi bi-cart3"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-10 pl-4">
+                                                    <h6 class="notification-heading">Your item is shipped</h6>
+                                                    <span class="notification-message">Your polo tshirt has been shipped by bluedart</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-divider mb-2 mt-1"></div>
+                                        <a class="text-decoration-none pl-4" style="color: rgb(31, 30, 30);" href="#">View All</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-3">
+                                <li class="nav-item dropdown active">
+                                    <a class="nav-link " title="Messages" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bi bi-envelope"><span class="ml-1  badge badge-success">4</span></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right notifications" aria-labelledby="messageDropdown">
+                                        <h6 class="dropdown-heading">Messages</h6>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div>
+                                                        <img src="./assets/images/avatar-1.jpg" class="img-fluid user-photo" alt="user-photo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-10 pl-4">
+                                                    <h6 class="notification-heading">Charles M Jones</h6>
+                                                    <p class="notification-message">Your order is placed and your order id is 12334</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div>
+                                                        <img src="./assets/images/avatar-2.jpg" class="img-fluid user-photo" alt="user-photo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-10 pl-4">
+                                                    <h6 class="notification-heading">Alena</h6>
+                                                    <p class="notification-message">Your order is placed and your order id is 12334</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div>
+                                                        <img src="./assets/images/avatar-3.jpg" class="img-fluid user-photo" alt="user-photo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-10 pl-4">
+                                                    <h6 class="notification-heading">Harry</h6>
+                                                    <p class="notification-message">Your order is placed and your order id is 12334</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-divider mb-2 mt-1"></div>
+                                        <a class="text-decoration-none pl-4" style="color: rgb(31, 30, 30);" href="#">View All</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-3 ">
+                                <li class="nav-item dropdown  active">
+                                    <a class="nav-link" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                English
+                              </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+                                        <a class="dropdown-item" href="#">Italian</a>
+                                        <a class="dropdown-item" href="#">French</a>
+                                        <a class="dropdown-item" href="#">Spanish</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+                <div class="Dashboard">
+
+                    <section id="titleSection" class="row mx-0 p-3 ">
+                        <div class="col">
+                            <h4><b>Dashboard</b></h4>
+                        </div>
+                        <div class="col">
+                            <nav aria-label="breadcrumb ">
+                                <ol class="breadcrumb bg-transparent float-right pt-0">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </section>
+                    <section id="statisticsSection" class="row mx-0">
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body row">
+                                    <div class="col-4">
+                                        <div class="align-self-center round">
+                                            <i class=" bi bi-person-plus-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <h6 class="card-subtitle mb-2 ">1809000</h6>
+                                        <p class="card-text text-muted">Visits Today</p>
+                                    </div>
+                                    <div class="col-4 text-success">
+                                        &uarr; 5.26%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body row">
+                                    <div class="col-4">
+                                        <div class="align-self-center round">
+                                            <i class=" bi bi-person-plus-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <h6 class="card-subtitle mb-2 ">18090</h6>
+                                        <p class="card-text text-muted">Visits Today</p>
+                                    </div>
+                                    <div class="col-4 text-success">
+                                        &uarr; 5.26%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body row">
+                                    <div class="col-4">
+                                        <div class="align-self-center round">
+                                            <i class=" bi bi-person-plus-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <h6 class="card-subtitle mb-2 ">18090</h6>
+                                        <p class="card-text text-muted">Visits Today</p>
+                                    </div>
+                                    <div class="col-4 text-success">
+                                        &uarr; 5.26%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body row">
+                                    <div class="col-4">
+                                        <div class="align-self-center round">
+                                            <i class=" bi bi-person-plus-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <h6 class="card-subtitle mb-2 ">1809000</h6>
+                                        <p class="card-text text-muted">Visits Today</p>
+                                    </div>
+                                    <div class="col-4 text-success">
+                                        &uarr; 5.26%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="usersSection" class="row my-5 mx-0">
+                        <div class="col-8">
+                            <div class="card bg-white m-b-30">
+                                <div class="card-body new-user">
+                                    <h5 class="header-title mb-4 mt-0">Members Profiles</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="border-top-0" style="width:60px;">Member</th>
+                                                    <th class="border-top-0">Name</th>
+                                                    <th class="border-top-0">Country</th>
+                                                    <th class="border-top-0">Earnings</th>
+                                                    <th class="border-top-0">Sales</th>
+                                                    <th class="border-top-0">Reviews</th>
+                                                    <th class="border-top-0">Progress</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><img class="rounded-circle" src="./assets/images/avatar-1.jpg" alt="user" width="40"></td>
+                                                    <td><a href="javascript:void(0);">Ruby T. Curd</a></td>
+                                                    <td><img src="./assets/images/avatar-1.jpg" alt="" style="width:30px"></td>
+                                                    <td>$100</td>
+                                                    <td>10</td>
+                                                    <td><i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star-half text-warning"></i> <i class="mdi mdi-star-outline text-warning"></i></td>
+                                                    <td>
+                                                        <div class="progress" style="height:8px;">
+                                                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100" style="width: 94%;"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img class="rounded-circle" src="./assets/images/avatar-1.jpg" alt="user" width="40"></td>
+                                                    <td><a href="javascript:void(0);">William A. Johnson</a></td>
+                                                    <td><img src="./assets/images/avatar-1.jpg" alt="" style="width:30px"></td>
+                                                    <td>$490</td>
+                                                    <td>24</td>
+                                                    <td><i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star-half text-warning"></i> <i class="mdi mdi-star-outline text-warning"></i></td>
+                                                    <td>
+                                                        <div class="progress" style="height:8px;">
+                                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width: 38%;"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img class="rounded-circle" src="./assets/images/avatar-1.jpg" alt="user" width="40"></td>
+                                                    <td><a href="javascript:void(0);">Bobby M. Gray</a></td>
+                                                    <td><img src="./assets/images/avatar-1.jpg" alt="" style="width:30px"></td>
+                                                    <td>$380</td>
+                                                    <td>19</td>
+                                                    <td><i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star-half text-warning"></i> <i class="mdi mdi-star-outline text-warning"></i></td>
+                                                    <td>
+                                                        <div class="progress" style="height:8px;">
+                                                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%;"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img class="rounded-circle" src="./assets/images/avatar-1.jpg" alt="user" width="40"></td>
+                                                    <td><a href="javascript:void(0);">Robert N. Carlile</a></td>
+                                                    <td><img src="./assets/images/avatar-1.jpg" alt="" style="width:30px"></td>
+                                                    <td>$450</td>
+                                                    <td>30</td>
+                                                    <td><i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star-half text-warning"></i> <i class="mdi mdi-star-outline text-warning"></i></td>
+                                                    <td>
+                                                        <div class="progress" style="height:8px;">
+                                                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%;"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img class="rounded-circle" src="./assets/images/avatar-1.jpg" alt="user" width="40"></td>
+                                                    <td><a href="javascript:void(0);">Ruby T. Curd</a></td>
+                                                    <td><img src="./assets/images/avatar-1.jpg" alt="" style="width:30px"></td>
+                                                    <td>$500</td>
+                                                    <td>40</td>
+                                                    <td><i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star text-warning"></i> <i class="mdi mdi-star-half text-warning"></i> <i class="mdi mdi-star-outline text-warning"></i></td>
+                                                    <td>
+                                                        <div class="progress" style="height:8px;">
+                                                            <div class="progress-bar l-blue" role="progressbar" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100" style="width: 17%;"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card-body new-user bg-white">
+                                <h5 class="header-title mt-0 mb-4">New Users</h5>
+                                <ul class="list-unstyled mb-0 pr-3" id="boxscroll2" tabindex="1" style="overflow: auto; outline: none; max-height: 450px;">
+                                    <li class="p-3">
+                                        <div class="media">
+                                            <div class="thumb float-left px-2">
+                                                <a href="#"><img class="round" src="./assets/images/avatar-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="media-body px-2">
+                                                <p class="media-heading mb-0">Ruby T. Curd
+                                                    <i class="bi bi-circle-fill text-success float-right"></i>
+                                                </p>
+                                                <small class="float-right text-muted">Now</small>
+                                                <small class="text-muted">Newyork</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="p-3">
+                                        <div class="media">
+                                            <div class="thumb float-left px-2">
+                                                <a href="#"><img class="round" src="./assets/images/avatar-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="media-body px-2">
+                                                <p class="media-heading mb-0">Ruby T. Curd
+                                                    <i class="bi bi-circle-fill text-success float-right"></i>
+                                                </p>
+                                                <small class="float-right text-muted">Now</small>
+                                                <small class="text-muted">Newyork</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="p-3">
+                                        <div class="media">
+                                            <div class="thumb float-left px-2">
+                                                <a href="#"><img class="round" src="./assets/images/avatar-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="media-body px-2">
+                                                <p class="media-heading mb-0">Ruby T. Curd
+                                                    <i class="bi bi-circle-fill text-success float-right"></i>
+                                                </p>
+                                                <small class="float-right text-muted">Now</small>
+                                                <small class="text-muted">Newyork</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="p-3">
+                                        <div class="media">
+                                            <div class="thumb float-left px-2">
+                                                <a href="#"><img class="round" src="./assets/images/avatar-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="media-body px-2">
+                                                <p class="media-heading mb-0">Ruby T. Curd
+                                                    <i class="bi bi-circle-fill text-success float-right"></i>
+                                                </p>
+                                                <small class="float-right text-muted">Now</small>
+                                                <small class="text-muted">Newyork</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="p-3">
+                                        <div class="media">
+                                            <div class="thumb float-left px-2">
+                                                <a href="#"><img class="round" src="./assets/images/avatar-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="media-body px-2">
+                                                <p class="media-heading mb-0">Ruby T. Curd
+                                                    <i class="bi bi-circle-fill text-success float-right"></i>
+                                                </p>
+                                                <small class="float-right text-muted">Now</small>
+                                                <small class="text-muted">Newyork</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="p-3">
+                                        <div class="media">
+                                            <div class="thumb float-left px-2">
+                                                <a href="#"><img class="round" src="./assets/images/avatar-1.jpg" alt=""></a>
+                                            </div>
+                                            <div class="media-body px-2">
+                                                <p class="media-heading mb-0">Ruby T. Curd
+                                                    <i class="bi bi-circle-fill text-success float-right"></i>
+                                                </p>
+                                                <small class="float-right text-muted">Now</small>
+                                                <small class="text-muted">Newyork</small>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <footer class="text-center mt-2 py-3 bg-light">© 2019 Annex by Mannatthemes.</footer>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- </div> -->
+    <!-- Jquery -->
+    <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

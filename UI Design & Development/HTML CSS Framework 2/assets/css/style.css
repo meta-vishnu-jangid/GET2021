@@ -1,0 +1,167 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #EFF3F5;
+}
+
+.sidebar {
+    box-shadow: 0px 0px 4px rgb(46, 45, 45);
+}
+
+.round {
+    line-height: 60px;
+    color: #5b6be8;
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+    display: inline-block;
+    font-weight: 400;
+    border: 3px solid #f8f8fe;
+    text-align: center;
+    border-radius: 50%;
+    background: #e1e4fb;
+}
+
+.card {
+    border: 0px;
+}
+
+.menu-heading {
+    color: #707070;
+    list-style-type: none;
+    font-size: small;
+    font-weight: 500;
+}
+
+.list-group-item {
+    border-radius: 0px;
+    color: #3b434b;
+    border: 0px;
+}
+
+.list-group-item:hover {
+    color: #5b6be8;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.list-group-item.active {
+    background: #EFF3F5;
+    color: #5b6be8;
+}
+
+.sidebar .dropdown-menu {
+    border: 0px;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.dropdown-toggle::after {
+    float: right;
+    margin-top: 10px;
+}
+
+.navbar {
+    background-color: #5b6be8;
+    box-shadow: 1px 1px 3px rgb(46, 45, 45);
+}
+
+.navbar .badge {
+    font-size: 9px;
+    position: relative;
+    left: -6px;
+    top: -12px;
+}
+
+.dropdown .dropdown-heading {
+    text-align: center;
+}
+
+.dropdown .dropdown-menu.notifications {
+    min-width: 17rem;
+    max-width: 17rem;
+}
+
+.dropdown .dropdown-divider {
+    margin: 0px;
+}
+
+.navbar .dropdown .dropdown-menu {
+    background-color: #eff3f6;
+    box-shadow: 0px 0px 7px #908686;
+}
+
+.navbar .dropdown .dropdown-item {
+    padding-top: 0.5em;
+    white-space: normal;
+    padding-bottom: 0.5em;
+    background-color: white;
+    font-weight: 500;
+    color: rgb(31, 30, 30);
+}
+
+.navbar .search-bar {
+    color: white;
+    background-color: #6d7beb;
+    border-radius: 37px;
+    border: 0px;
+    outline: none;
+}
+
+.navbar .search-bar::placeholder {
+    color: white;
+}
+
+.dropdown .dropdown-item:hover {
+    background-color: rgb(248, 248, 248);
+}
+
+.dropdown .notifications .notification-heading {
+    font-size: large;
+}
+
+.dropdown .notifications .notification-message {
+    font-size: small;
+    font-weight: 200;
+    color: rgb(31, 30, 30);
+}
+
+.dropdown .notifications .notification-icon {
+    width: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #5b6be8;
+}
+
+img.user-photo {
+    border-radius: 50%;
+    max-width: 30px;
+}
+
+.navbar-toggler-fixed {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+.nav-sidebar {
+    position: fixed;
+    z-index: 5;
+}
+
+@media (min-width: 576px) {
+    .navbar-expand-sm .navbar-toggler {
+        display: none;
+    }
+}
