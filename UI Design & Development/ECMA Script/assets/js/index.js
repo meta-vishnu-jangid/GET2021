@@ -167,11 +167,11 @@ let addVehicle = (e) => {
 let updatePrice = (duration, currency) => {
     let newPrice = undefined;
     if (currency == "usd") {
-        newPrice = "$ " + priceList[addedVehicle.vehicleType][duration];
+        newPrice = `$ ${priceList[addedVehicle.vehicleType][duration]}`;
     } else if (currency == "inr") {
-        newPrice = "&#x20b9; " + (priceList[addedVehicle.vehicleType][duration] * currencyConversion["usd-inr"]);
+        newPrice = `&#x20b9;  ${priceList[addedVehicle.vehicleType][duration] * currencyConversion["usd-inr"]}`;
     } else if (currency == "yen") {
-        newPrice = "&#165;" + (priceList[addedVehicle.vehicleType][duration] * currencyConversion["usd-yen"]);
+        newPrice = `&#165;" ${priceList[addedVehicle.vehicleType][duration] * currencyConversion["usd-yen"]}`;
     }
     if (duration == "day") {
         document.getElementById("dayPrice").innerHTML = newPrice;
