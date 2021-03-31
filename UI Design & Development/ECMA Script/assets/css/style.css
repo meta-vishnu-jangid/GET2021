@@ -1,0 +1,186 @@
+* {
+    font-family: 'Baloo Bhai 2', cursive;
+    box-sizing: border-box !important;
+}
+
+body {
+    margin: 0px;
+}
+
+header img {
+    max-height: 600px;
+}
+
+
+/* UTIL */
+
+.float-right {
+    float: right;
+    cursor: pointer;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.border-success {
+    border: 1px solid green !important;
+}
+
+.border-danger {
+    border: 1px solid red !important;
+}
+
+
+/* Styling the Navigation Bar */
+
+nav {
+    background: #02256c;
+    padding: 15px;
+}
+
+nav .nav-item {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin: auto 10px;
+}
+
+nav .nav-item:hover {
+    color: rgb(224, 217, 217);
+}
+
+
+/* Styling Sections */
+
+section {
+    margin: 20px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    background: #eff0f3;
+}
+
+section .heading {
+    padding: 8px 25px;
+    text-align: center;
+    background: #02256c;
+    color: white;
+}
+
+
+/* Styling Form */
+
+.form-group {
+    border-radius: 12px;
+    width: 450px;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+.form-group .form-input {
+    font-size: 16px;
+    border-width: 0px;
+    width: 90%;
+    padding: 5px 30px;
+    border-radius: 22px;
+    line-height: 27px;
+    outline: none;
+    background-color: white;
+}
+
+.form-group .form-input::placeholder {
+    font-size: 16px;
+    color: rgb(51, 49, 49);
+}
+
+.form-group .form-checkbox-block {
+    color: rgb(51, 49, 49);
+    background-color: white;
+    border-radius: 15px;
+    line-height: 27px;
+    padding: 5px 30px;
+    width: 90%;
+    margin: auto;
+}
+
+.form-group .form-checkbox-block .label-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-group .form-checkbox-block .form-checkbox-heading {
+    float: left;
+}
+
+.form-group .form-checkbox-block .form-check {
+    text-align: start;
+    margin-left: 20px;
+}
+
+.form-group .form-submit-btn {
+    width: 50%;
+    padding: 5px 30px;
+    border-radius: 22px;
+    line-height: 27px;
+    outline: none;
+    cursor: pointer;
+    background-color: #02256c;
+    color: white;
+}
+
+.form-group .form-submit-btn:hover {
+    background-color: #09265f;
+}
+
+
+/* Pricing Section */
+
+#pricingSection .pricing-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#pricingSection .pricing-container .pricing-card {
+    flex: 1;
+    text-align: center;
+    max-width: 25vw;
+    padding: 25px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+#pricingSection .pricing-container .pricing-card .circle {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+#pricingSection .pricing-container .pricing-card .circle p {
+    font-weight: 800;
+    font-size: 19px;
+}
+
+#pricingSection .pricing-container .pricing-card .pricing-btn {
+    width: 50%;
+    padding: 5px 30px;
+    border-radius: 5px;
+    line-height: 27px;
+    outline: none;
+    cursor: pointer;
+    background-color: #02256c;
+    color: white;
+}
+
+.collapsible.collapsed {
+    display: none!important;
+}
+
+#feedbackSection .collapsed {
+    display: none!important;
+}
