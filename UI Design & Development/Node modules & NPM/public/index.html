@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Metacube Parking System</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header Starts Here -->
+    <header>
+        <!-- Navigation Bar Starts Here -->
+        <nav>
+            <a class="nav-item" href="#addEmployeeSection" title="Go to Add Employee Section">Get Pass</a> |
+            <a class="nav-item" href="feedback.html#feedbackSection" title="Go to  Feedback Section"> Give Feedback</a>
+        </nav>
+        <!-- Navigation Bar Ends Here -->
+        <img src="./assets/img/mps.jfif" width="100%" alt="Parking System Banner" />
+    </header>
+    <!-- Header Ends Here -->
+
+    <!-- Add Employee Section Starts Here -->
+    <section id="addEmployeeSection">
+        <h1 class="heading">Add Employee</h1>
+        <form id="addEmployeeForm" class="form-group collapsible" onkeydown="return event.key != 'Enter';">
+            <h2 class="helpText"></h2>
+            <br>
+            <input class="form-input" oninput="validate(this)" minlength="2" pattern="[A-Z a-z]*" title="Enter your full name" type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+            <div class="form-checkbox-block form-input" title="Can i know your gender">
+                <span class="form-checkbox-heading">Gender :</span>
+                <label class="form-check">
+                    <input type="radio" name="gender" value="male" />Male
+                </label>
+                <label class="form-check">
+                    <input type="radio" name="gender" value="female"/>Female
+                </label>
+            </div>
+            <input class="form-input" oninput="validate(this)" type="email" id="email" name="email" title="Enter your email " placeholder="Enter your email ">
+            <input class="form-input" oninput="validate(this)" minlength="8" pattern="[0-9]*" type="text" id="contactNo" name="contactNo" title="Enter your contact number" placeholder="Enter your contact number">
+            <input class="form-input" oninput="validatePassword(this)" type="password" id="password" name="password" title="Enter password" placeholder="Enter password">
+            <input class="form-input" oninput="validatePassword(this)" type="password" id="rePassword" name="rePassword" title="Enter Password again for Confiramation" placeholder="Confirm Password">
+            <br><br>
+            <button class="form-submit-btn form-input" onclick="addEmployee(event)" title="Submit Details" value="Submit">Submit</button>
+        </form>
+    </section>
+    <!-- Add Employee Section Ends Here -->
+
+    <!-- Add Vehicle Section Starts Here -->
+    <section id="addVehicleSection">
+        <h1 class="heading">Add Vehicle</h1>
+        <form id="addVehicleForm" class="form-group  collapsible" onkeydown="return event.key != 'Enter';">
+            <br>
+            <h2 class="helpText"></h2>
+            <br>
+            <input class="form-input" oninput="validate(this)" minlength="2" pattern="[A-Z a-z]*" type="text" id="vehicleCompany" name="vehicleCompany" title="Enter Vehicle Manufacturer Name" placeholder="Enter Vehicle Manufacturer Name">
+            <input class="form-input" oninput="validate(this)" minlength="2" type="text" id="vehicleModel" name="vehicleModel" title="Enter Vehicle Model" placeholder="Enter Vehicle Model">
+            <div title="Select Vehicle Type" class="form-checkbox-block form-input">
+                <span class="form-checkbox-heading">Vehicle Type :</span>
+                <div class="label-block">
+                    <label class="form-check">
+                        <input type="radio" name="vehicleType" value="cycle" />Cycle
+                    </label>
+                    <label class="form-check">
+                        <input type="radio" name="vehicleType" value="motorCycle"/>Motor Cycle
+                    </label>
+                    <label class="form-check">
+                        <input type="radio" name="vehicleType" value="fourWheeler" />Four Wheeler
+                    </label>
+                </div>
+            </div>
+            <input class="form-input" type="text" oninput="validate(this)" minlength="8" pattern="[A-Z a-z0-9]*" id="vehicleNo" name="vehicleNo" title="Enter Vehicle Number" placeholder="Enter Vehicle Number">
+            <input class="form-input" type="text" oninput="validate(this)" minlength="1" pattern="[0-9]*" id="employeeId" name="employeeId" title="Enter Employee ID" placeholder="Enter Employee ID">
+            <textarea class="form-input" id="identification" oninput="validate(this)" minlength="2" name="identification" title="Enter Identification of Vehicle" placeholder="Enter Identification of Vehicle"></textarea><br><br>
+            <button class="form-submit-btn form-input" title="Submit Vehicle Details" type="submit" onclick="addVehicle(event)" value="Submit">Submit</button>
+        </form>
+    </section>
+    <!-- Add Vehicle Section Ends Here -->
+
+    <!-- Pricing Section Starts Here -->
+    <section id="pricingSection" class="mb-10">
+        <h1 class="heading">Pricing</h1>
+        <h2 class="helpText"></h2>
+        <div class="pricing-container  collapsible">
+
+            <div id="cyclePricing" class="pricing-card">
+                <h3 class="card-heading">Day Wise </h3>
+                <span class="circle"><p><span id="dayPrice">500</span> / Day</p>
+                </span><br><br>
+                <div title="Select Currency" class="form-checkbox-block">
+                    <span class="form-checkbox-heading">Currency :</span>
+                    <br>
+                    <div class="label-block">
+                        <label class="form-check">
+                            <input type="radio" name="dCurrency"  onclick="updatePrice('day','usd')" checked />USD
+                        </label>
+                        <label class="form-check">
+                            <input type="radio" name="dCurrency" onclick="updatePrice('day','inr')"  />INR
+                        </label>
+                        <label class="form-check">
+                            <input type="radio" name="dCurrency" onclick="updatePrice('day','yen')"  />YEN
+                        </label>
+                    </div>
+                </div>
+                <br><br>
+                <button class="pricing-btn" id="cyclePricingBtn" onclick="buyPass('day')" name="cyclePricingBtn">Purchase</button>
+            </div>
+
+            <div id="motorCyclePricing" class="pricing-card">
+                <h3 class="card-heading">MONTHLY</h3>
+                <span class="circle"><p><span id="monthPrice">500</span> / Month</p>
+                </span><br><br>
+                <div title="Select Currency" class="form-checkbox-block">
+                    <span class="form-checkbox-heading">Currency :</span>
+                    <br>
+                    <div class="label-block">
+                        <label class="form-check">
+                            <input type="radio" name="mCurrency" onclick="updatePrice('month','usd')" checked />USD
+                        </label>
+                        <label class="form-check">
+                            <input type="radio" name="mCurrency" onclick="updatePrice('month','inr')" />INR
+                        </label>
+                        <label class="form-check">
+                            <input type="radio" name="mCurrency" onclick="updatePrice('month','yen')" />YEN
+                        </label>
+                    </div>
+                </div>
+                <br><br>
+                <button class="pricing-btn" id="motorCyclePricingBtn" onclick="buyPass('month')" name="motorCyclePricingBtn">Purchase</button>
+            </div>
+
+            <div id="fourWheelerPricing" class="pricing-card">
+                <h3 class="card-heading">YEARLY</h3>
+                <span class="circle"><p ><span id="yearPrice">500</span> / Year</p>
+                </span><br><br>
+                <div title="Select Currency" class="form-checkbox-block form-input">
+                    <span class="form-checkbox-heading">Currency :</span>
+                    <br>
+                    <div class="label-block">
+                        <label class="form-check">
+                            <input type="radio" name="yCurrency" onclick="updatePrice('year','usd')" checked />USD
+                        </label>
+                        <label class="form-check">
+                            <input type="radio" name="yCurrency" onclick="updatePrice('year','inr')" />INR
+                        </label>
+                        <label class="form-check">
+                            <input type="radio" name="yCurrency" onclick="updatePrice('year','yen')" />YEN
+                        </label>
+                    </div>
+                </div>
+                <br><br>
+                <button class="pricing-btn" id="fourWheelerPricingBtn" onclick="buyPass('year')" name="fourWheelerPricingBtn">Purchase</button>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section Ends Here -->
+
+
+    <!-- Adding JS -->
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
