@@ -6,10 +6,6 @@ body {
     background-color: #EFF3F5;
 }
 
-.sidebar {
-    box-shadow: 0px 0px 4px rgb(46, 45, 45);
-}
-
 .round {
     line-height: 60px;
     color: #5b6be8;
@@ -68,7 +64,6 @@ body {
 
 .navbar {
     background-color: #5b6be8;
-    box-shadow: 1px 1px 3px rgb(46, 45, 45);
 }
 
 .navbar .badge {
@@ -110,11 +105,19 @@ body {
     background-color: #6d7beb;
     border-radius: 37px;
     border: 0px;
+}
+
+.navbar .search-bar input::placeholder {
+    color: white;
+}
+
+.navbar .search-bar input {
+    color: white;
     outline: none;
 }
 
-.navbar .search-bar::placeholder {
-    color: white;
+.form-control:focus {
+    box-shadow: none;
 }
 
 .dropdown .dropdown-item:hover {
@@ -158,6 +161,14 @@ img.user-photo {
 .nav-sidebar {
     position: fixed;
     z-index: 5;
+}
+
+#usersSection table th {
+    font-weight: 500;
+}
+
+#usersSection .table td {
+    vertical-align: middle;
 }
 
 @media (min-width: 576px) {
