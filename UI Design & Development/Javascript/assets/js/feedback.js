@@ -14,14 +14,19 @@ function submitFeedback(e) {
     var feedbackEmail = submitFeedbackForm['feedbackEmail'];
     var feedbackSubject = submitFeedbackForm['feedbackSubject'];
     var feedbackMessage = submitFeedbackForm['feedbackMessage'];
-    if (validate(feedbackFullName) && validate(feedbackEmail) && validate(feedbackSubject) && validate(feedbackMessage)) {
+    if (!validate(feedbackFullName)) {
+        alert("Invalid name ! \n\nNote : name must contain atleast two alphabets and does not contain any special character");
+    } else if (!validate(feedbackEmail)) {
+        alert("Wrong email id");
+    } else if (!validate(feedbackSubject)) {
+        alert("Subject must contain atleast 5 characters");
+    } else if (!validate(feedbackMessage)) {
+        alert("Message must contain atleast 10 characters");
+    } else {
         var givenFeedback = new Feedback(feedbackFullName.value, feedbackEmail.value, feedbackSubject.value, feedbackMessage.value);
         alert("Sent feedback successfully");
         window.location.reload();
-    } else {
-        alert("Some Fields are invalid");
     }
-
 }
 
 

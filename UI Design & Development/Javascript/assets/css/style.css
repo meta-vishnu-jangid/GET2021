@@ -11,6 +11,12 @@ header img {
     max-height: 600px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 
 /* UTIL */
 
@@ -77,6 +83,28 @@ section .heading {
     padding: 20px;
     margin: auto;
     text-align: center;
+}
+
+.form-group .nav-btn {
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    width: 100px;
+    padding: 5px 10px 5px 10px;
+    background-color: #09265f;
+    color: white;
+}
+
+.form-group .nav-btn:hover {
+    color: #8b8c8d;
+}
+
+.form-group .disabled:hover {
+    color: white;
+}
+
+.form-group .nav-btn.disabled {
+    background-color: #2a3e66;
 }
 
 .form-group .form-input {
