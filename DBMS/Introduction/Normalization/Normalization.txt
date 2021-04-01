@@ -1,0 +1,82 @@
+
+Normalization =>  Normalization  is the process of minimizing redundancy from a relation or set of relations.
+Redundancy in relation may cause insertion, deletion and updation anomalies.
+
+Normal Forms =>
+
+1.) 1NF =>
+          A relation is said to be 1NF if it has only Single Value for a tuple.
+	  example:-
+
+          Stud_name        Stud_subject
+
+             A		Physics , chemistry
+
+          It should be like
+	  
+	  Stud_name   Stud_subject
+
+             A		Physics 
+ 	     A 		Chemistry
+
+
+2.) 2NF  =>
+	  A relation is in 2NF if it is in 1NF and don't have partial dependency. No non prime attribute directly depend on any proper
+	  Subset of Candidate Key.
+	
+	  Example:-
+
+	    Stud_name        course_id        course_name
+             A		        1		PCM
+
+	  here candidate key is (stud_name,couse_id). here course_name is dependent on course_id which is proper subset of Candidate Key.
+	  So For 2NF we have to remove partial dependency.
+
+	  Solution => 
+		 Stud_name        course_id       
+            	    A		        1	
+     
+   		 course_id        course_name
+                    1		      PCM
+
+
+3.) 3NF  =>
+	  A relation is said to be in 3NF if it isn 2NF and there is no transitive dependency.like 1 non prime attribute is dependent on other non
+	  prime attribute that is dependent on prime attribute.
+
+	  Example:-
+		
+	    person_name    zipcode     city
+  		A 	     121  	AA
+
+	  Here City is dependent on zipcode which is dependent on person_name wher person_name is candidate key.
+
+	  Solution =>
+	
+		    person_name    zipcode     
+  			A 	     121  	
+		
+		    zipcode     city
+  		      121  	 AA
+
+
+4.) BCNF  =>
+	   A relation is said to be in BCNF if in all functional dependency LHS is super key.in x->y x is super key
+	
+	   Example:=>
+			
+		 person_id    person_name      course_id    course_name
+  		   1	         ABC   		121  	     AA
+
+ 	   candidate key(person_id, course_id)
+           here course_name is dependent on course id which is not a super key 
+    
+           Solution =>
+
+	 	person_id    person_name     
+  		   1	         ABC 
+  		
+		course_id    course_name
+  		  121  	         AA
+		
+		
