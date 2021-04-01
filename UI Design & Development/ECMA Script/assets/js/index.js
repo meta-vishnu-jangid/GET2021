@@ -45,45 +45,30 @@ let addedVehicle = undefined;
 let helpText = document.getElementsByClassName("helpText")[activeForm];
 let collapsibleForms = document.getElementsByClassName("collapsible");
 let inputTags = document.getElementsByTagName("input");
-let textAreaTags = document.getElementsByTagName("textarea");
+let passwordCriteriaDiv = document.getElementById("passwordCriteria");
 
-for (index = 0; index < textAreaTags.length; index++) {
-    textAreaTags[index].addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-            increamentActiveInput();
+
+let prevButtons = document.getElementsByClassName("prev-btn");
+let nextButtons = document.getElementsByClassName("next-btn");
+
+
+let refreshNavigationButtons = () => {
+    if (activeForm < 2) {
+        if (activeInput == 0) {
+            prevButtons[activeForm].style.visibility = 'hidden';
+        } else if (activeInput == 1) {
+            prevButtons[activeForm].style.visibility = 'visible';
+        } else if (activeForm == 0 && activeInput == 6) {
+            nextButtons[activeForm].style.visibility = 'hidden';
+        } else if (activeForm == 0 && activeInput == 5) {
+            nextButtons[activeForm].style.visibility = 'visible';
+        } else if (activeForm == 1 && activeInput == 6) {
+            nextButtons[activeForm].style.visibility = 'hidden';
+        } else if (activeForm == 1 && activeInput == 5) {
+            nextButtons[activeForm].style.visibility = 'visible';
         }
-    });
+    }
 }
-
-for (index = 0; index < inputTags.length; index++) {
-    inputTags[index].addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-            if (validate(event.target)) {
-                if (event.target.getAttribute("type") == "password" && event.target.getAttribute("name") == "rePassword") {
-                    if (validateConfirmPassword(event.target)) {
-                        increamentActiveInput();
-                    } else {
-                        alert("Passwords Does Not Match");
-                    }
-                } else if (event.target.getAttribute("type") == "password") {
-                    if (validatePassword(event.target)) {
-                        increamentActiveInput();
-                    } else {
-                        alert("Passwords does not match criteria");
-                    }
-                } else {
-                    if (activeForm == 0 && activeInput == 0) {
-                        employeeName = document.getElementById("addEmployeeForm")['fullName'].value;
-                    }
-                    increamentActiveInput();
-                }
-            } else {
-                alert("Wrong Input");
-            }
-        }
-    });
-}
-
 
 let collapseFormExceptActiveForm = (activeForm, collapsibleForms) => {
     for (index = 0; index < collapsibleForms.length; index++) {
@@ -93,6 +78,7 @@ let collapseFormExceptActiveForm = (activeForm, collapsibleForms) => {
             collapsibleForms[index].classList.remove("collapsed");
         }
     }
+    refreshNavigationButtons();
 }
 
 let collapseInputExceptActiveInput = (activeForm, activeInput, collapsibleForms) => {
@@ -116,12 +102,114 @@ let collapseInputExceptActiveInput = (activeForm, activeInput, collapsibleForms)
     }
 }
 
+let showOrHidePasswordCriteria = () => {
+    if (activeForm == 0 && activeInput == 4) {
+        passwordCriteriaDiv.style.display = 'block';
+    } else {
+        passwordCriteriaDiv.style.display = 'none';
+    }
+}
+
+let increamentActiveInput = () => {
+    activeInput++;
+    showOrHidePasswordCriteria();
+    collapseInputExceptActiveInput(activeForm, activeInput, collapsibleForms);
+}
+
+let decrementActiveInput = () => {
+    activeInput--;
+    showOrHidePasswordCriteria();
+    collapseInputExceptActiveInput(activeForm, activeInput, collapsibleForms);
+}
+
+refreshNavigationButtons();
 collapseFormExceptActiveForm(activeForm, collapsibleForms);
 collapseInputExceptActiveInput(activeForm, activeInput, collapsibleForms);
 
+let showMessageIfNotValid = (element) => {
+    if (validate(element)) {
+        if (element.getAttribute("type") == "password" && element.getAttribute("name") == "rePassword") {
+            if (validateConfirmPassword(element)) {
+                increamentActiveInput();
+            } else {
+                alert("Confirm password does not match with password");
+            }
+        } else if (element.getAttribute("type") == "password") {
+            if (validatePassword(element)) {
+                increamentActiveInput();
+            } else {
+                alert("Password does not match criteria \n\n Note : Password must contain -> \n1. Minimum 8 characters \n2. 1 Uppercase Letter\n3. 1 Lowercase Letter \n4. 1 Special Character ");
+            }
+        } else {
+            if (activeForm == 0 && activeInput == 0) {
+                employeeName = document.getElementById("addEmployeeForm")['fullName'].value;
+            }
+            increamentActiveInput();
+        }
+    } else {
+        if (element.getAttribute("name").toLowerCase().includes("name")) {
+            alert("Wrong name ! \n\n Note : Name can only contain alphabets and space.");
+        } else if (element.getAttribute("name").toLowerCase().includes("email")) {
+            alert("Wrong Email !");
+        } else if (element.getAttribute("name").toLowerCase().includes("contact")) {
+            alert("Wrong Contact Number ! \n\n Note : Require minimum 8 digits");
+        } else if (element.getAttribute("name").toLowerCase().includes("vehiclecompany")) {
+            alert("Invalid Manufacturer name ! must have 2 or more alphabets");
+        } else if (element.getAttribute("name").toLowerCase().includes("vehiclemodel")) {
+            alert("Invalid Vehicle Model ! must have length 2 or greater then 2");
+        } else if (element.getAttribute("name").toLowerCase().includes("vehicleno")) {
+            alert("Invalid Vehicle Number ! \n\n Note : can contain only digits and numbers and have minimum length 8");
+        } else if (element.getAttribute("name").toLowerCase().includes("employeeid")) {
+            alert("Invalid Employee ID ! \n\n Note : can only contain digits");
+        } else if (element.getAttribute("name").toLowerCase().includes("identification")) {
+            alert("must contain 2 letters");
+        }
+    }
+}
 
-let addEmployee = (event) => {
-    event.preventDefault();
+let goAhead = () => {
+    let inputTag = collapsibleForms[activeForm].querySelectorAll(".form-input")[activeInput];
+    if (inputTag.tagName == 'DIV') {
+        if (activeForm == 0) {
+            if (collapsibleForms[activeForm]['gender'].value == "") {
+                alert("Please Select Gender");
+            } else {
+                increamentActiveInput();
+            }
+        } else if (activeForm == 1) {
+            if (collapsibleForms[activeForm]['vehicleType'].value == "") {
+                alert("Please Select Vehicle Type");
+            } else {
+                increamentActiveInput();
+            }
+        }
+
+    } else { showMessageIfNotValid(inputTag); }
+    refreshNavigationButtons();
+}
+
+
+
+let goBack = () => {
+    if (activeInput != 0) {
+        decrementActiveInput();
+    }
+    refreshNavigationButtons();
+}
+
+for (index = 0; index < inputTags.length; index++) {
+    inputTags[index].addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+            showMessageIfNotValid(event.target);
+        }
+        refreshNavigationButtons();
+    });
+}
+
+
+
+let addEmployee = (e) => {
+    e.preventDefault();
     let addEmployeeForm = document.getElementById("addEmployeeForm");
     let name = addEmployeeForm['fullName'].value;
     let gender = addEmployeeForm['gender'].value;
@@ -130,6 +218,7 @@ let addEmployee = (event) => {
     let contactNo = addEmployeeForm['contactNo'].value;
     addedEmployee = new Employee(employeeIdCount, name, gender, email, contactNo, password);
     let addVehicleForm = document.getElementById("addVehicleForm");
+    console.log(addVehicleForm);
     addVehicleForm['employeeId'].value = employeeIdCount;
     employeeIdCount++;
     activeForm++;
@@ -199,10 +288,7 @@ let buyPass = (duration) => {
     window.location.href = "http://127.0.0.1:5500/feedback.html#feedbackSection";
 }
 
-let increamentActiveInput = () => {
-    activeInput++;
-    collapseInputExceptActiveInput(activeForm, activeInput, collapsibleForms);
-}
+
 
 let validate = (element) => {
     let isValid = undefined;

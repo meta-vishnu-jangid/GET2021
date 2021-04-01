@@ -38,11 +38,22 @@
                 </label>
             </div>
             <input class="form-input" oninput="validate(this)" type="email" id="email" name="email" title="Enter your email " placeholder="Enter your email ">
-            <input class="form-input" oninput="validate(this)" minlength="8" pattern="[0-9]*" type="text" id="contactNo" name="contactNo" title="Enter your contact number" placeholder="Enter your contact number">
+            <input class="form-input" oninput="validate(this)" min="10000000" pattern="[0-9]*" type="number" id="contactNo" name="contactNo" title="Enter your contact number" placeholder="Enter your contact number">
             <input class="form-input" oninput="validatePassword(this)" type="password" id="password" name="password" title="Enter password" placeholder="Enter password">
             <input class="form-input" oninput="validatePassword(this)" type="password" id="rePassword" name="rePassword" title="Enter Password again for Confiramation" placeholder="Confirm Password">
+            <div id="passwordCriteria" style="text-align: start; padding-left: 30px; display: none;">
+                <p>*must contain minimum 8 characters</p>
+                <p>*must contain 1 Uppercase letter</p>
+                <p>*must contain 1 Lowercase letter</p>
+                <p>*must contain 1 Special Character</p>
+            </div>
             <br><br>
-            <button class="form-submit-btn form-input" onclick="addEmployee(event)" title="Submit Details" value="Submit">Submit</button>
+            <div style="text-align: start;">
+                <a class="nav-btn prev-btn" style="text-align: center;" onclick="goBack()">Previous</a>
+                <a class="nav-btn next-btn" style="text-align: center; float:right;" onclick="goAhead()">Next</a>
+            </div>
+
+            <button class="form-submit-btn form-input" onclick="addEmployee(event)" title=" Click submit to final submit details" value="Submit">Submit</button>
         </form>
     </section>
     <!-- Add Employee Section Ends Here -->
@@ -71,9 +82,13 @@
                 </div>
             </div>
             <input class="form-input" type="text" oninput="validate(this)" minlength="8" pattern="[A-Z a-z0-9]*" id="vehicleNo" name="vehicleNo" title="Enter Vehicle Number" placeholder="Enter Vehicle Number">
-            <input class="form-input" type="text" oninput="validate(this)" minlength="1" pattern="[0-9]*" id="employeeId" name="employeeId" title="Enter Employee ID" placeholder="Enter Employee ID">
-            <textarea class="form-input" id="identification" oninput="validate(this)" minlength="2" name="identification" title="Enter Identification of Vehicle" placeholder="Enter Identification of Vehicle"></textarea><br><br>
-            <button class="form-submit-btn form-input" title="Submit Vehicle Details" type="submit" onclick="addVehicle(event)" value="Submit">Submit</button>
+            <input class="form-input" type="number" oninput="validate(this)" minlength="1" pattern="[0-9]*" id="employeeId" name="employeeId" title="Enter Employee ID" placeholder="Enter Employee ID">
+            <input class="form-input" id="identification" oninput="validate(this)" minlength="2" name="identification" title="Enter Identification of Vehicle" placeholder="Enter Identification of Vehicle"></input><br><br>
+            <div style="text-align: start;">
+                <a class="nav-btn prev-btn" style="text-align: center;" onclick="goBack()">Previous</a>
+                <a class="nav-btn next-btn" style="text-align: center; float:right;" onclick="goAhead()">Next</a>
+            </div>
+            <button class="form-submit-btn form-input" title="Are you sure you" type="submit" onclick="addVehicle(event)" value="Submit">Submit</button>
         </form>
     </section>
     <!-- Add Vehicle Section Ends Here -->
