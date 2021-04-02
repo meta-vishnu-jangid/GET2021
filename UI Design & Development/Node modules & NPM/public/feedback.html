@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feedback | Metacube Parking System </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header Starts Here -->
+    <header>
+        <!-- Navigation Bar Starts Here -->
+        <nav>
+            <a class="nav-item" href="index.html#addEmployeeSection" title="Go to Add Employee Section">Get Pass</a> |
+            <a class="nav-item" href="#feedbackSection" title="Go to  Feedback Section"> Give Feedback</a>
+        </nav>
+        <!-- Navigation Bar Ends Here -->
+        <img src="./assets/img/mps.jfif" width="100%" alt="Parking System Banner" />
+    </header>
+    <!-- Header Ends Here -->
+
+    <!-- Feedback Section Starts Here -->
+    <section id="feedbackSection">
+        <h1 class="heading">Feedback</h1>
+        <form id="feedbackForm" class="form-group" action="#">
+            <br>
+            <h2 class="helpText"></h2>
+            <br>
+            <input class="form-input" type="text" oninput="validate(this)" minlength="2" pattern="[A-Za-z ]*" title="Enter your name" placeholder="Enter your name" name="feedbackFullName" id="feedbackFullName"><br><br>
+            <input class="form-input" type="email" oninput="validate(this)" title="Enter your Email Id" placeholder="Enter your Email Id" name="feedbackEmail" id="feedbackEmail"><br><br>
+            <input class="form-input" type="text" oninput="validate(this)" minlength="5" title="Enter Subject" placeholder="Enter Subject" name="feedbackSubject" id="feedbackSubject"><br><br>
+            <textarea class="form-input" oninput="validate(this)" minlength="10" title="Enter Message" placeholder="Enter Message" name="feedbackMessage" id="feedbackMessage" cols="30" rows="5"></textarea><br><br>
+            <button class="form-submit-btn form-input" title="Send Message" type="submit" onclick="submitFeedback(event)" value="Send Message">Send Message</button><br><br>
+        </form>
+    </section>
+    <!-- Feedback Section Ends Here -->
+
+    <!-- Adding JS -->
+    <script src="./assets/js/feedback.js"></script>
+</body>
+
+</html>
