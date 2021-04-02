@@ -7,26 +7,31 @@ class Feedback {
     }
 }
 
-function submitFeedback(e) {
+let submitFeedback = (e) => {
     e.preventDefault();
-    var submitFeedbackForm = document.getElementById("feedbackForm");
-    var feedbackFullName = submitFeedbackForm['feedbackFullName'];
-    var feedbackEmail = submitFeedbackForm['feedbackEmail'];
-    var feedbackSubject = submitFeedbackForm['feedbackSubject'];
-    var feedbackMessage = submitFeedbackForm['feedbackMessage'];
-    if (validate(feedbackFullName) && validate(feedbackEmail) && validate(feedbackSubject) && validate(feedbackMessage)) {
-        var givenFeedback = new Feedback(feedbackFullName.value, feedbackEmail.value, feedbackSubject.value, feedbackMessage.value);
+    let submitFeedbackForm = document.getElementById("feedbackForm");
+    let feedbackFullName = submitFeedbackForm['feedbackFullName'];
+    let feedbackEmail = submitFeedbackForm['feedbackEmail'];
+    let feedbackSubject = submitFeedbackForm['feedbackSubject'];
+    let feedbackMessage = submitFeedbackForm['feedbackMessage'];
+    if (!validate(feedbackFullName)) {
+        alert("Invalid name ! \n\nNote : name must contain atleast two alphabets and does not contain any special character");
+    } else if (!validate(feedbackEmail)) {
+        alert("Wrong email id");
+    } else if (!validate(feedbackSubject)) {
+        alert("Subject must contain atleast 5 characters");
+    } else if (!validate(feedbackMessage)) {
+        alert("Message must contain atleast 10 characters");
+    } else {
+        let givenFeedback = new Feedback(feedbackFullName.value, feedbackEmail.value, feedbackSubject.value, feedbackMessage.value);
         alert("Sent feedback successfully");
         window.location.reload();
-    } else {
-        alert("Some Fields are invalid");
     }
-
 }
 
 
-function validate(element) {
-    var isValid = undefined;
+let validate = (element) => {
+    let isValid = undefined;
     if (element.checkValidity() && element.value != "") {
         element.classList.add("border-success");
         element.classList.remove("border-danger");
